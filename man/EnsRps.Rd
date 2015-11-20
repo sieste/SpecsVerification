@@ -14,7 +14,7 @@ EnsRps(ens, obs, R.new)
 \item{R.new}{ensemble size for which the scores should be adjusted}
 }
 \value{
-numeric vector of length N with the ensemble-adjusted CRPS values
+numeric vector of length N with the ensemble-adjusted RPS values
 }
 \description{
 Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts
@@ -23,12 +23,12 @@ Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical f
 # N=5 time instances, R=10 ensemble members, K=3 classes
 ens <- t(rmultinom(n=5, size=10, prob=c(.3, .1, .6)))
 obs <- t(rmultinom(n=5, size=1,  prob=c(.3, .1, .6)))
-EnsQs(ens, obs, R.new=Inf)
+EnsRps(ens, obs, R.new=Inf)
 }
 \references{
 n/a
 }
 \seealso{
-EnsBrier, EnsRps, EnsCrps
+EnsBrier, EnsQs, EnsCrps
 }
 

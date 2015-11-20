@@ -14,7 +14,7 @@ EnsQs(ens, obs, R.new = NA)
 \item{R.new}{ensemble size for which the scores should be adjusted}
 }
 \value{
-numeric vector of length N with the ensemble-adjusted CRPS values
+numeric vector of length N with the ensemble-adjusted quadratic score values
 }
 \description{
 Calculate the ensemble-adjusted Quadratic Score (QS) for categorical forecasts
