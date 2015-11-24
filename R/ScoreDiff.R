@@ -1,35 +1,49 @@
-ScoreDiff <- function(scores, scores.ref, N.eff=NA, confidence.bounds=c(0.025, 0.975)) {
+#' Calculate average score difference and assess uncertainty
+#'
+#' @param scores vector of verification scores
+#' @param scores.ref vector of verification scores of the reference forecast, must be of the same length as `scores`
+#' @param N.eff user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `scores` is used; default: NA
+#' @param p.ci vector of limits of the confidence interval; default: c(0.025, 0.975)
+#' @param handle.na how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
+#' @return vector with mean score difference, estimated standard error of the mean, p-value of the diebold-mariano test, and the user-specified confidence interval
+#' @examples
+#' fcst <- rnorm(20)
+#' fcst.ref <- rnorm(20)
+#' obs <- rnorm(20)
+#' ScoreDiff(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+#' @seealso n/a
+#' @references n/a
+#' @export
+ScoreDiff <- function(scores, scores.ref, N.eff=NA, p.ci=c(0.025, 0.975), handle.na="na.fail") {
+
 
   ## sanity checks
-
-  # demand N.eff to be positive and have length 1 
-  stopifnot(length(N.eff) == 1, N.eff > 0)
-
-  # demand confidence.bounds to be of length 2 with both values between 0 and 1
-  stopifnot(length(confidence.bounds) == 2)
-  confidence.bounds <- sort(confidence.bounds)
-  stopifnot(all(confidence.bounds > 0), all(confidence.bounds < 1))
-
-  # demand scores vectors to be of equal length
+  N.eff <- N.eff[1L]
+  stopifnot(N.eff > 0 | is.na(N.eff))
   stopifnot(length(scores) == length(scores.ref))
+  stopifnot(all(p.ci) > 0, all(p.ci) < 1)
 
 
-  ## handle missing values
-
-  # only consider pairwise complete scores
-  nna <- is.finite(scores + scores.ref)
-  scores <- scores[nna]
-  scores.ref <- scores.ref[nna]
-
-
-  ## sample size
-
-  # calculate N as length of scores vector after removing missing values, or
-  # use user-defined effective sample size 
-  if (is.na(N.eff)) {
-    N <- length(scores)
+  ## handle NA's
+  if (handle.na == "na.fail") {
+    if (any(is.na(c(scores, scores.ref)))) {
+      stop("missing values")
+    }
+  } else if (handle.na == "use.pairwise.complete") {
+    nna <- !is.na(scores) & !is.na(scores.ref)
+    if (all(nna == FALSE)) {
+      stop("there are no complete pairs of scores")
+    }
+    scores <- scores[nna]
+    scores.ref <- scores.ref[nna]
   } else {
-    N <- N.eff
+    stop("unknown 'handle.na' argument")
+  }
+
+
+  ## _after_ removing any missing values, deal with user-defined effective sample size
+  if (is.na(N.eff)) {
+    N.eff <- length(scores)
   }
 
 
@@ -43,21 +57,25 @@ ScoreDiff <- function(scores, scores.ref, N.eff=NA, confidence.bounds=c(0.025, 0
 
   # calculate variance of loss-differentials
   var.d <- var(d)
+  
+  # calculate standard error of the mean loss-differential, use effective sample size
+  d.bar.sd <- sqrt(var.d / N.eff)
 
   # calculate p-value using asymptotic test by Diebold-Mariano (1995), return
-  # NA is N or variance are non-positive
-  if (N > 0 & var.d > 0) {
-    p.value <- pnorm(sqrt(N / var.d) * d.bar)
+  # NA if variance is non-positive
+  if (d.bar.sd > 0) {
+    p.value <- pnorm(d.bar / d.bar.sd)
   } else {
     p.value <- NA
   }
 
-
   # calculate confidence interval of the mean
-  ci <- qnorm(p=confidence.bounds, mean=d.bar, sd=sqrt(var.d / N))
+  ci <- qnorm(p=p.ci, mean=d.bar, sd=d.bar.sd)
   
-  # return vector including the score difference, p.value, and confidence interval
-  ret <- c(score.diff=d.bar, p.value=p.value, ci.L=cip[1], ci.U=ci[2])
+
+  ## return vector including the score difference, error of the mean, p.value,
+  # and confidence interval
+  ret <- c(score.diff=d.bar, score.diff.sd=d.bar.sd, p.value, ci.L=ci[1], ci.U=ci[2])
   return(ret)
 
 }

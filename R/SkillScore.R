@@ -1,62 +1,75 @@
-SkillScore <- function(scores, scores.ref, N.eff=NA, confidence.bounds=c(0.025, 0.975), score.perf=0) {
+#' Calculate a skill score and assess uncertainty
+#'
+#' @param scores vector of verification scores
+#' @param scores.ref vector of verification scores of the reference forecast, must be of the same length as `scores`
+#' @param N.eff user-defined effective sample size to be used to estimate the sampling uncertainty; if NA, the length of `scores` is used; default: NA
+#' @param score.perf a numeric constant, indicating the value that the score would assign to the perfect forecast
+#' @param handle.na how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
+#' @return vector with skill score and its estimated standard deviation
+#' @examples
+#' fcst <- rnorm(20)
+#' fcst.ref <- rnorm(20)
+#' obs <- rnorm(20)
+#' SkillScore(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+#' @seealso n/a
+#' @references n/a
+#' @export
+SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na.fail") {
 
   ## sanity checks
-
-  # demand score.perf to be length 1 and none of NA|NaN|Inf
-  stopifnot(length(score.perf) == 1, is.finite(score.perf))
-
-  # demand N.eff to be positive and have length 1 
-  stopifnot(length(N.eff) == 1, N.eff > 0)
-
-  # demand confidence.bounds to be of length 2 with both values between 0 and 1
-  stopifnot(length(confidence.bounds) == 2)
-  confidence.bounds <- sort(confidence.bounds)
-  stopifnot(all(confidence.bounds > 0), all(confidence.bounds < 1))
-
-  # demand scores vectors to be of equal length
+  N.eff <- N.eff[1L]
+  score.perf <- score.perf[1L]
+  stopifnot(N.eff > 0 | is.na(N.eff))
   stopifnot(length(scores) == length(scores.ref))
+  stopifnot(is.finite(score.perf))
 
 
-  ## handle missing values
-
-  # only consider pairwise complete scores
-  nna <- is.finite(scores + scores.ref)
-  scores <- scores[nna]
-  scores.ref <- scores.ref[nna]
-
-
-  ## sample size
-
-  # calculate N as length of scores vector after removing missing values, or
-  # use user-defined effective sample size 
-  if (is.na(N.eff)) {
-    N <- length(scores)
+  ## handle NA's
+  if (handle.na == "na.fail") {
+    if (any(is.na(c(scores, scores.ref)))) {
+      stop("missing values")
+    }
+  } else if (handle.na == "use.pairwise.complete") {
+    nna <- !is.na(scores) & !is.na(scores.ref)
+    if (all(nna == FALSE)) {
+      stop("there are no complete pairs of scores")
+    }
+    scores <- scores[nna]
+    scores.ref <- scores.ref[nna]
   } else {
-    N <- N.eff
+    stop("unknown 'handle.na' argument")
   }
+
+
+  ## _after_ removing any missing values, deal with user-defined effective sample size
+  if (is.na(N.eff)) {
+    N.eff <- length(scores)
+  }
+
+
 
 
   ## calculations
 
-  # calculate mean scores
-  score <- mean(scores)
-  score.ref <- mean(scores.ref)
+  # calculate mean scores, shift by score.perf
+  score <- mean(scores) - score.perf
+  score.ref <- mean(scores.ref) - score.perf
 
   # calculate skill score
-  skillscore <- (score.ref - score) / (score.ref - score.perf)
+  skillscore <- 1 - score / score.ref
 
   # calculate auxiliary quantities
   v.score <- var(scores)
   v.score.ref <- var(scores.ref)
   cov.score   <- cov(scores, scores.ref)
 
-  # calculate error propagation standard deviation
+  # calculate skill score standard deviation by error propagation 
   sqrt.na <- function(z) {
     z[z<0] <- NA
     return(sqrt(z))
   }
   skillscore.sigma <- 
-         1 / sqrt(N) * sqrt.na( v.score / score.ref^2 + 
+         1 / sqrt(N.eff) * sqrt.na( v.score / score.ref^2 + 
          v.score.ref * score^2 / score.ref^4 - 
          2 * cov.score * score / score.ref^3)
 
@@ -66,6 +79,6 @@ SkillScore <- function(scores, scores.ref, N.eff=NA, confidence.bounds=c(0.025, 
   }
 
   #return
-  c(skillscore=skillscore, skillscore.sigma=skillscore.sigma)
+  c(skillscore=skillscore, skillscore.sd=skillscore.sigma)
 
 }
