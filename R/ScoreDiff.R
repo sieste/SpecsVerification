@@ -5,7 +5,7 @@
 #' @param N.eff user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `scores` is used; default: NA
 #' @param p.ci vector of limits of the confidence interval; default: c(0.025, 0.975)
 #' @param handle.na how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
-#' @return vector with mean score difference, estimated standard error of the mean, p-value of the diebold-mariano test, and the user-specified confidence interval
+#' @return vector with mean score difference, estimated standard error of the mean, one-sided p-value of the Diebold-Mariano test, and the user-specified confidence interval
 #' @examples
 #' fcst <- rnorm(20)
 #' fcst.ref <- rnorm(20)
@@ -21,7 +21,7 @@ ScoreDiff <- function(scores, scores.ref, N.eff=NA, p.ci=c(0.025, 0.975), handle
   N.eff <- N.eff[1L]
   stopifnot(N.eff > 0 | is.na(N.eff))
   stopifnot(length(scores) == length(scores.ref))
-  stopifnot(all(p.ci) > 0, all(p.ci) < 1)
+  stopifnot(all(p.ci > 0), all(p.ci < 1))
 
 
   ## handle NA's
@@ -64,7 +64,7 @@ ScoreDiff <- function(scores, scores.ref, N.eff=NA, p.ci=c(0.025, 0.975), handle
   # calculate p-value using asymptotic test by Diebold-Mariano (1995), return
   # NA if variance is non-positive
   if (d.bar.sd > 0) {
-    p.value <- pnorm(d.bar / d.bar.sd)
+    p.value <- pnorm(d.bar / d.bar.sd, lower.tail=FALSE)
   } else {
     p.value <- NA
   }
@@ -75,7 +75,7 @@ ScoreDiff <- function(scores, scores.ref, N.eff=NA, p.ci=c(0.025, 0.975), handle
 
   ## return vector including the score difference, error of the mean, p.value,
   # and confidence interval
-  ret <- c(score.diff=d.bar, score.diff.sd=d.bar.sd, p.value, ci.L=ci[1], ci.U=ci[2])
+  ret <- c(score.diff=d.bar, score.diff.sd=d.bar.sd, p.value=p.value, ci.L=ci[1], ci.U=ci[2])
   return(ret)
 
 }

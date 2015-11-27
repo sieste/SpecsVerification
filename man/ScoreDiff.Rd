@@ -2,7 +2,7 @@
 % Please edit documentation in R/ScoreDiff.R
 \name{ScoreDiff}
 \alias{ScoreDiff}
-\title{Diebold-Mariano test for equality of mean verification scores}
+\title{Calculate average score difference and assess uncertainty}
 \usage{
 ScoreDiff(scores, scores.ref, N.eff = NA, p.ci = c(0.025, 0.975),
   handle.na = "na.fail")
@@ -19,10 +19,10 @@ ScoreDiff(scores, scores.ref, N.eff = NA, p.ci = c(0.025, 0.975),
 \item{handle.na}{how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'}
 }
 \value{
-vector with mean score difference, estimated standard error of the mean, p-value of the diebold-mariano test, and the user-specified confidence interval
+vector with mean score difference, estimated standard error of the mean, one-sided p-value of the Diebold-Mariano test, and the user-specified confidence interval
 }
 \description{
-Diebold-Mariano test for equality of mean verification scores
+Calculate average score difference and assess uncertainty
 }
 \examples{
 fcst <- rnorm(20)

@@ -1,49 +1,72 @@
-################################
-#
-# THE CORRELATION COEFFICIENT OF THE ENSEMBLE MEAN
-#
-# ens ... ensemble values (matrix of dimension N*K)
-# obs ... observations (vector of length N)
-#
-################################
-Corr <- function(ens, obs, probs=c(0.025, 0.975)) {
+#' Calculate correlation between forecasts and observations, and assess uncertainty
+#'
+#' @param fcst vector of forecasts
+#' @param obs vector of observations
+#' @param N.eff user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `obs` is used after removing missing values; default: NA
+#' @param conf.level confidence level used the confidence interval; default = 0.95
+#' @param handle.na how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
+#' @return vector with correlation, one-sided p-value, and central confidence interval at the user-defined confidence level
+#' @examples
+#' fcst <- rnorm(20)
+#' obs <- rnorm(20)
+#' Corr(fcst, obs)
+#' @seealso n/a
+#' @references n/a
+#' @export
+Corr <- function(fcst, obs, N.eff=NA, conf.level=0.95, handle.na="na.fail") {
 
-  # pre-process
-  l <- Preprocess(ens=ens, obs=obs)
-  ens <- l[["ens"]]
-  obs <- l[["obs"]]
+  ## sanity checks
+  stopifnot(length(fcst) == length(obs))
 
-  N <- length(obs)
-  if (N == 1) {
-    ci <- rep(NA, length(probs))
-    names(ci) <- paste("q",round(probs, 4), sep="")
-    return(c(corr=NA, ci, p.value=NA))
+
+  ## handle NA's
+  if (handle.na == "na.fail") {
+    if (any(is.na(c(fcst, obs)))) {
+      stop("missing values")
+    }
+  } else if (handle.na == "use.pairwise.complete") {
+    nna <- !is.na(fcst) & !is.na(obs)
+    if (all(nna == FALSE)) {
+      stop("there are no complete sets of forecasts and observations")
+    }
+    fcst <- fcst[nna]
+    obs <- obs[nna]
+  } else {
+    stop("unknown 'handle.na' argument")
   }
 
-  #calculate correlation
-  ens.mean <- rowMeans(ens, na.rm=TRUE)
-  cc <- cor(obs, ens.mean, use="pairwise.complete.obs")
 
-  # update N
-  N <- N - sum(is.na(ens.mean + obs))
+  ## define sample size; the case of N <= 3 etc is handeled by the testing functions
+  N.eff <- N.eff[1L]
+  if (!is.na(N.eff)) {
+    N <- N.eff
+  } else {
+    N <- length(obs)
+  }
+  
+
+  ## calculate correlation
+  cc <- cor(obs, ens.mean)
+
 
   # calculate confidence interval by Fisher z-transform, return NA if N < 4
-  if (N < 4) {
-    ci <- NA * probs
+  alpha <- (1. - conf.level) / 2.
+  probs <- c(alpha, 1 - alpha)
+  if (N <= 3) {
+    ci <- c(NA_real_, NA_real_)
   } else {
     ci <- tanh(atanh(cc) + qnorm(probs)/sqrt(N-3))
   }
-  names.ci <- paste("q",round(probs, 4), sep="")
 
   # calculate p value by one-sided t-test (vonstorch & zwiers, p149)
-  if (N < 3) {
+  if (N <= 2) {
     p.val <- NA
   } else {
     t <- sqrt((N-2) * cc * cc / (1 - cc * cc))
-    p.val <- 1-pt(t, df=N-2)
+    p.val <- pt(t, df=N-2, lower.tail=FALSE)
   }
-  ret <- c(cc, ci, p.val)
-  names(ret) <- c("corr", names.ci, "p.value")
+  ret <- c(cc, p.val, ci)
+  names(ret) <- c("corr", "p.value", "L", "U")
 
   return(ret)
 }

@@ -74,11 +74,11 @@ SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na
          2 * cov.score * score / score.ref^3)
 
   # set skillscore.sigma to NA if not finite
-  if (!is.finite(skill.score.sigma)) {
+  if (!is.finite(skillscore.sigma)) {
     skillscore.sigma <- NA 
   }
 
   #return
-  c(skillscore=skillscore, skillscore.sd=skillscore.sigma)
+  c(skillscore=skillscore, stdev=skillscore.sigma)
 
 }

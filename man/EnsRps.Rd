@@ -4,12 +4,12 @@
 \alias{EnsRps}
 \title{Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts}
 \usage{
-EnsRps(ens, obs, R.new)
+EnsRps(ens, obs, R.new = NA)
 }
 \arguments{
-\item{ens}{a N*K matrix representing N time instances of categorical ensemble forecasts; ens[t,k] indicates the number of ensemble members that predict category k at time t}
+\item{ens}{a N*R matrix representing N time instances of categorical ensemble forecasts; ens[t,r] indicates the category that the r-th ensemble member predicts for time t}
 
-\item{obs}{a N*K matrix, with obs[i,k] either 0 or 1, and all rowSums equal to one; y[t,k] = 1 if category k verifies at time t, otherwise y[t,k] = 0}
+\item{obs}{a vector of length N, with obs[t] is the category observed at time t}
 
 \item{R.new}{ensemble size for which the scores should be adjusted}
 }
@@ -20,9 +20,9 @@ numeric vector of length N with the ensemble-adjusted RPS values
 Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts
 }
 \examples{
-# N=5 time instances, R=10 ensemble members, K=3 classes
-ens <- t(rmultinom(n=5, size=10, prob=c(.3, .1, .6)))
-obs <- t(rmultinom(n=5, size=1,  prob=c(.3, .1, .6)))
+# N=5 time instances, R=10 ensemble members
+ens <- matrix(c(1,3,2, 1,2,3), nrow=3, ncol=2)
+obs <- c(1,3,2)
 EnsRps(ens, obs, R.new=Inf)
 }
 \references{
