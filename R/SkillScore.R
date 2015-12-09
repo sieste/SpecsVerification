@@ -79,6 +79,6 @@ SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na
   }
 
   #return
-  c(skillscore=skillscore, stdev=skillscore.sigma)
+  c(skillscore=skillscore, skillscore.sd=skillscore.sigma)
 
 }
