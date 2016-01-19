@@ -70,21 +70,21 @@ AucDiff <- function(fcst, fcst.ref, obs, handle.na="na.fail") {
 
 
   ## Delong's S matrix and variance estimate
-  V10 <- rowMeans(Psi)
-  V10.ref <- rowMeans(Psi.ref)
-  V01 <- colMeans(Psi)
-  V01.ref <- colMeans(Psi.ref)
+  V <- rowMeans(Psi)
+  V.ref <- rowMeans(Psi.ref)
+  W <- colMeans(Psi)
+  W.ref <- colMeans(Psi.ref)
 
-  s10.11 <- sum((V10 - theta)^2) / (m - 1)
-  s10.22 <- sum((V10.ref - theta.ref)^2) / (m - 1)
-  s10.12 <- sum((V10 - theta) * (V10.ref - theta.ref)) / (m - 1)
+  v.11 <- sum((V - theta)^2) / (m - 1)
+  v.22 <- sum((V.ref - theta.ref)^2) / (m - 1)
+  v.12 <- sum((V - theta) * (V.ref - theta.ref)) / (m - 1)
 
-  s01.11 <- sum((V01 - theta)^2) / (n - 1)
-  s01.22 <- sum((V01.ref - theta.ref)^2) / (n - 1)
-  s01.12 <- sum((V01 - theta) * (V01.ref - theta.ref)) / (n - 1)
+  w.11 <- sum((W - theta)^2) / (n - 1)
+  w.22 <- sum((W.ref - theta.ref)^2) / (n - 1)
+  w.12 <- sum((W - theta) * (W.ref - theta.ref)) / (n - 1)
 
-  var.aucdiff <- (s10.11 + s10.22 - 2 * s10.12) / m +
-                 (s01.11 + s01.22 - 2 * s01.12) / n
+  var.aucdiff <- (v.11 + v.22 - 2 * v.12) / m +
+                 (w.11 + w.22 - 2 * w.12) / n
 
   sd.aucdiff <- sqrt(var.aucdiff)
 
