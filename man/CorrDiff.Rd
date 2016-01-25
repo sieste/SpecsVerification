@@ -16,7 +16,7 @@ CorrDiff(fcst, fcst.ref, obs, N.eff = NA, conf.level = 0.95,
 
 \item{N.eff}{user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `obs` is used after removing missing values; default: NA}
 
-\item{conf.level}{confidence level used the confidence interval; default = 0.95}
+\item{conf.level}{confidence level for the confidence interval; default = 0.95}
 
 \item{handle.na}{how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.triplets'; default: 'na.fail'}
 }

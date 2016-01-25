@@ -4,7 +4,7 @@
 \alias{ScoreDiff}
 \title{Calculate average score difference and assess uncertainty}
 \usage{
-ScoreDiff(scores, scores.ref, N.eff = NA, p.ci = c(0.025, 0.975),
+ScoreDiff(scores, scores.ref, N.eff = NA, conf.level = 0.95,
   handle.na = "na.fail")
 }
 \arguments{
@@ -14,7 +14,7 @@ ScoreDiff(scores, scores.ref, N.eff = NA, p.ci = c(0.025, 0.975),
 
 \item{N.eff}{user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `scores` is used; default: NA}
 
-\item{p.ci}{vector of limits of the confidence interval; default: c(0.025, 0.975)}
+\item{conf.level}{confidence level for the confidence interval; default = 0.95}
 
 \item{handle.na}{how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'}
 }

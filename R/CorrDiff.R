@@ -4,7 +4,7 @@
 #' @param fcst.ref vector of reference forecasts
 #' @param obs vector of observations
 #' @param N.eff user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `obs` is used after removing missing values; default: NA
-#' @param conf.level confidence level used the confidence interval; default = 0.95
+#' @param conf.level confidence level for the confidence interval; default = 0.95
 #' @param handle.na how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.triplets'; default: 'na.fail'
 #' @return vector with correlation difference, one-sided p-value, and central confidence interval at the user-defined confidence level
 #' @examples
