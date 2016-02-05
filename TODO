@@ -2,3 +2,15 @@
 - check examples
 - check cross references between ensemble score functions
 - check consistent formulations in documention of function arguments
+- rename SpecsVerification2 to SpecsVerification in *all* files (use grep,
+  seriously)
+
+missing methods:
+
+!SpecsVerification::BrierScoreDecomposition
+!SpecsVerification::Detrend                  
+!SpecsVerification::DressIgn               
+!SpecsVerification::GaussCrpsDecomposition 
+!SpecsVerification::GenerateToyData          
+!SpecsVerification::GetDensity               
+!SpecsVerification::PlotDressedEns           
