@@ -7,7 +7,7 @@
 DressCrps(dressed.ens, obs)
 }
 \arguments{
-\item{dressed.ens}{a list with elements `ens`, a N*R matrix representing N time instances of kernel centers, and `ker.wd`, a N*R matrix with corresponding kernel standard deviations}
+\item{dressed.ens}{a list with elements `ens`, a N*R matrix representing N time instances of kernel centers, and `ker.wd`, a N*R matrix with corresponding kernel standard deviations. See function `DressEnsemble`}
 
 \item{obs}{a numeric vector of length N with real-valued observations}
 }
