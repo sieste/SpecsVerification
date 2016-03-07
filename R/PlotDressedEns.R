@@ -11,7 +11,7 @@
 #' obs <- rnorm(4)
 #' d.ens <- DressEnsemble(ens)
 #' PlotDressedEns(d.ens, add=FALSE, obs=obs, plot.ens=FALSE, plot.ker=TRUE)
-#' @seealso n/a
+#' @seealso DressEnsemble
 #' @export
 
 # plot a dressed ensemble

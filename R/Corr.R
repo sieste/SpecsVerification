@@ -10,8 +10,8 @@
 #' fcst <- rnorm(20)
 #' obs <- rnorm(20)
 #' Corr(fcst, obs)
-#' @seealso n/a
-#' @references n/a
+#' @seealso CorrDiff
+#' @references Von Storch, Zwiers (2001): Statistical analysis in climate research. Cambridge University Press.
 #' @export
 Corr <- function(fcst, obs, N.eff=NA, conf.level=0.95, handle.na="na.fail") {
 

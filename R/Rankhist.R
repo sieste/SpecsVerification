@@ -13,6 +13,7 @@
 #'  rh <- Rankhist(ens, obs, reduce.bins=2)
 #' @references Anderson J.L. (1996). A Method for Producing and Evaluating Probabilistic Forecasts from Ensemble Model Integrations. J. Climate, 9, 1518--1530. DOI 10.1175/1520-0442(1996)009%3C1518:AMFPAE%3E2.0.CO;2.
 #' Hammill T.M. (2001). Interpretation of Rank Histograms for Verifying Ensemble Forecasts. Mon. Wea. Rev., 129, 550--560. DOI 10.1175/1520-0493(2001)129%3C0550:IORHFV%3E2.0.CO;2.
+#' @seealso PlotRankhist, TestRankhist
 #' @export
 
 Rankhist <- function(ens, obs, reduce.bins=1, handle.na="na.fail") {

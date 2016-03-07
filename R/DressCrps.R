@@ -8,8 +8,8 @@
 #' dressed.ens <- DressEnsemble(ens)
 #' obs <- rnorm(20)
 #' mean(DressCrps(dressed.ens, obs, R.new=Inf))
-#' @seealso n/a
-#' @references Grimit et al (2006) "The continuous ranked probability score for circular variables and its application to mesoscale forecast ensemble verification" doi:10.1256/qj.05.235
+#' @seealso EnsCrps, ScoreDiff, SkillScore
+#' @references Grimit et al (2006): The continuous ranked probability score for circular variables and its application to mesoscale forecast ensemble verification. Q.J.R. Meteorol. Soc. http://dx.doi.org/10.1256/qj.05.235
 #' @useDynLib SpecsVerification2
 #' @export
 

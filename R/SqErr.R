@@ -7,8 +7,7 @@
 #' fcst <- rnorm(20)
 #' obs <- rnorm(20)
 #' mean(SqErr(fcst, obs))
-#' @seealso n/a
-#' @references n/a 
+#' @seealso AbsErr, ScoreDiff, SkillScore
 #' @export
 
 SqErr <- function(fcst, obs) {

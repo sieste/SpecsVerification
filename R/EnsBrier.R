@@ -8,7 +8,7 @@
 #' ens <- matrix(rbinom(100, 1, 0.3), 20, 5)
 #' obs <- rbinom(20, 1, 0.3)
 #' mean(EnsBrier(ens, obs, R.new=Inf))
-#' @seealso EnsRps, EnsCrps
+#' @seealso EnsRps, EnsCrps, ScoreDiff, SkillScore
 #' @references Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. doi: 10.1002/met.45
 #' @export
 

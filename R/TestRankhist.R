@@ -19,6 +19,7 @@
 #'  obs <- rnorm(100)
 #'  rh <- Rankhist(ens, obs)
 #'  TestRankhist(rh)
+#' @seealso Rankhist, PlotRankhist
 #' @references
 #' Pearson K. (1900): X. On the criterion that a given system of deviations from the probable in the case of a correlated system of variables is such that it can be reasonably supposed to have arisen from random sampling.  Phil. Mag. Series 5, 50(302) DOI: 10.1080/14786440009463897.
 #' 

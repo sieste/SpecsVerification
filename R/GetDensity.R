@@ -24,6 +24,7 @@
 #'  # distributions assign to the observations (useful
 #'  # for constructing a PIT histogram)
 #'  pit <- GetDensity(dressed.ens, x2, integrated=TRUE)
+#' @seealso DressEnsemble, DressCrps, DressIgn, PlotDressedEns, FitAkdParameters
 #' @export
 
 GetDensity <- function(dressed.ens, x, integrated=FALSE) {

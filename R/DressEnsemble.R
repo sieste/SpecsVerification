@@ -20,7 +20,7 @@
 #'                                        s1=0, s2=0))
 #' d.akd.fit <- DressEnsemble(ens, dressing.method="akd.fit", 
 #'                            parameters=list(obs=obs))
-#' @seealso n/a
+#' @seealso DressCrps, DressIgn, GetDensity, FitAkdParameters
 #' @references 
 #' Silverman, B.W. (1998). Density Estimation for Statistics and Data Analysis. London: Chapman & Hall/CRC. ISBN 0-412-24620-1.
 #' Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. DOI 10.1111/j.1600-0870.2008.00333.x.

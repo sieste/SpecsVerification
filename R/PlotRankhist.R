@@ -16,6 +16,7 @@
 #' @references
 #' Anderson J.L. (1996). A Method for Producing and Evaluating Probabilistic Forecasts from Ensemble Model Integrations. J. Climate, 9, 1518--1530. DOI 10.1175/1520-0442(1996)009%3C1518:AMFPAE%3E2.0.CO;2.
 #' Broecker J. (2008). On reliability analysis of multi-categorical forecasts. Nonlin. Processes Geophys., 15, 661-673, DOI 10.5194/npg-15-661-2008.
+#' @seealso Rankhist, TestRankhist
 #' @export
 
 PlotRankhist <- function(rank.hist, mode="raw") {

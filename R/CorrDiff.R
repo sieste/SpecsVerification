@@ -12,8 +12,9 @@
 #' fcst.ref <- rnorm(20)
 #' obs <- rnorm(20)
 #' CorrDiff(fcst, fcst.ref, obs)
-#' @seealso n/a
-#' @references Steiger (1980), Zou (2007)
+#' @seealso Corr
+#' @references Steiger (1980): Tests for comparing elements of a correlation matrix. Psychological Bulletin. http://dx.doi.org/10.1037/0033-2909.87.2.245 
+#' Zou (2007): Toward using confidence intervals to compare correlations. Psychological Methods. http://dx.doi.org/10.1037/1082-989X.12.4.399
 #' @export
 CorrDiff <- function(fcst, fcst.ref, obs, N.eff=NA, conf.level=0.95, handle.na="na.fail") {
 

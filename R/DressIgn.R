@@ -10,7 +10,7 @@
 #' d.ens <- DressEnsemble(ens)
 #' d.ens.ref <- DressEnsemble(ens.ref)
 #' DressIgnSs(d.ens, d.ens.ref, obs)
-#' @seealso n/a
+#' @seealso DressEnsemble, DressCrps
 #' @references Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, doi: 10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2
 #' @export
 

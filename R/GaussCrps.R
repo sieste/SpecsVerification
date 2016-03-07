@@ -9,7 +9,7 @@
 #' sd <- 1+runif(20)
 #' obs <- rnorm(20)
 #' mean(GaussCrps(mean, sd, obs))
-#' @seealso n/a
+#' @seealso EnsCrps, DressCrps, ScoreDiff, SkillScore
 #' @references Gneiting et al (2005). Calibrated Probabilistic Forecasting Using Ensemble Model Output Statistics and Minimum CRPS Estimation. Mon. Wea. Rev. DOI: 10.1175/MWR2904.1
 #' @export
 

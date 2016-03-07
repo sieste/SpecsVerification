@@ -9,7 +9,6 @@
 #'  Detrend(ens)
 #'  obs <- 1:10 + rnorm(10)
 #'  Detrend(obs, demean=FALSE)
-#' @seealso n/a
 #' @export
 
 Detrend <- function(x, demean=TRUE) {

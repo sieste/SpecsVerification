@@ -10,8 +10,8 @@
 #' obs <- rbinom(n=20, size=1, prob=fcst)
 #' fcst.ref <- rep(0.5, 20)
 #' AucDiff(fcst, fcst.ref, obs)
-#' @seealso n/a
-#' @references DeLong 1988
+#' @seealso Auc
+#' @references DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. http://dx.doi.org/10.2307/2531595
 #' @export
 AucDiff <- function(fcst, fcst.ref, obs, handle.na="na.fail") {
 

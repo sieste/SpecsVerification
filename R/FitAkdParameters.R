@@ -19,7 +19,7 @@
 #' ens <- matrix(rnorm(500),100,5)
 #' obs <- rnorm(100)
 #' FitAkdParameters(ens, obs)
-#' @seealso n/a
+#' @seealso DressEnsemble, DressCrps, DressIgn, PlotDressedEns, GetDensity
 #' @references
 #' Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. DOI 10.1111/j.1600-0870.2008.00333.x.
 #' @export

@@ -11,8 +11,7 @@
 #' fcst.ref <- rnorm(20)
 #' obs <- rnorm(20)
 #' SkillScore(SqErr(fcst, obs), SqErr(fcst.ref, obs))
-#' @seealso n/a
-#' @references n/a
+#' @seealso ScoreDiff
 #' @export
 SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na.fail") {
 
