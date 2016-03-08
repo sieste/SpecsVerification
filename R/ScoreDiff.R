@@ -87,3 +87,176 @@ ScoreDiff <- function(scores, scores.ref, N.eff=NA, conf.level=0.95, handle.na="
 
 }
 
+
+
+##################################################################
+# the following functions are included for backward compatibility with
+# SpecsVerification version < 1.0.0
+
+
+
+#' Calculate DressCrps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param dressed.ens the ensemble
+#' @param dressed.ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean DressCrps difference
+#' @seealso ScoreDiff DressCrps DressEnsemble
+#' @export
+
+DressCrpsDiff <- function(dressed.ens, dressed.ens.ref, obs, probs=NA) {
+  ScoreDiff(DressCrps(dressed.ens, obs), DressCrps(dressed.ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+#' Calculate DressIgn Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param dressed.ens the ensemble
+#' @param dressed.ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean DressIgn difference
+#' @seealso ScoreDiff DressIgn
+#' @export
+
+DressIgnDiff <- function(dressed.ens, dressed.ens.ref, obs, probs=NA) {
+  ScoreDiff(DressIgn(dressed.ens, obs), DressIgn(dressed.ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+#' Calculate EnsBrier Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param tau not used
+#' @param probs not used
+#' @return mean EnsBrier difference
+#' @seealso ScoreDiff EnsBrier
+#' @export
+
+EnsBrierDiff <- function(ens, ens.ref, obs, tau=NA, probs=NA) {
+  ScoreDiff(EnsBrier(ens, obs), EnsBrier(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate EnsCrps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean EnsCrps difference
+#' @seealso ScoreDiff EnsCrps
+#' @export
+
+EnsCrpsDiff <- function(ens, ens.ref, obs, probs=NA) {
+  ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+
+
+#' Calculate EnsRps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean EnsRps difference
+#' @seealso ScoreDiff EnsRps
+#' @export
+
+EnsRpsDiff <- function(ens, ens.ref, obs, probs=NA) {
+  ScoreDiff(EnsRps(ens, obs), EnsRps(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate FairBrier Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param tau not used
+#' @param probs not used
+#' @return mean FairBrier difference
+#' @seealso ScoreDiff EnsBrier
+#' @export
+
+FairBrierDiff <- function(ens, ens.ref, obs, tau=NA, probs=NA) {
+  ScoreDiff(EnsBrier(ens, obs, R.new=Inf), EnsBrier(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate FairCrps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean FairCrps difference
+#' @seealso ScoreDiff EnsCrps
+#' @export
+
+FairCrpsDiff <- function(ens, ens.ref, obs, probs=NA) {
+  ScoreDiff(EnsCrps(ens, obs, R.new=Inf), EnsCrps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+
+
+#' Calculate FairRps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param probs not used
+#' @return mean FairRps difference
+#' @seealso ScoreDiff EnsRps
+#' @export
+
+FairRpsDiff <- function(ens, ens.ref, obs, probs=NA) {
+  ScoreDiff(EnsRps(ens, obs, R.new=Inf), EnsRps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+
+}
+
+
+
+
+#' Calculate GaussCrps Difference (deprecated, use function ScoreDiff instead)
+#'
+#' @param mean forecast means
+#' @param sd forecast standard deviations
+#' @param mean.ref reference forecast means
+#' @param sd.ref reference forecast standard deviations
+#' @param obs the observation
+#' @param probs not used
+#' @return mean GaussCrps difference
+#' @seealso ScoreDiff GaussCrps
+#' @export
+
+GaussCrpsDiff <- function(mean, sd, mean.ref, sd.ref, obs, probs=NA) {
+  ScoreDiff(GaussCrps(mean, sd, obs), GaussCrps(mean.ref, sd.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+

@@ -81,3 +81,155 @@ SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na
   c(skillscore=skillscore, skillscore.sd=skillscore.sigma)
 
 }
+
+
+
+
+
+##################################################################
+# the following functions are included for backward compatibility with
+# SpecsVerification version < 1.0.0
+
+
+
+#' Calculate DressCrps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param dressed.ens the ensemble
+#' @param dressed.ens.ref the reference ensemble
+#' @param obs the observation
+#' @return DressCrps Skill Score
+#' @seealso SkillScore DressCrps DressEnsemble
+#' @export
+
+DressCrpss <- function(dressed.ens, dressed.ens.ref, obs) {
+  SkillScore(DressCrps(dressed.ens, obs), DressCrps(dressed.ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+#' Calculate EnsBrier Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param tau not used
+#' @return EnsBrier skill score
+#' @seealso SkillScore EnsBrier
+#' @export
+
+EnsBrierSs <- function(ens, ens.ref, obs, tau=NA) {
+  SkillScore(EnsBrier(ens, obs), EnsBrier(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate EnsCrps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @return EnsCrps skill score
+#' @seealso SkillScore EnsCrps
+#' @export
+
+EnsCrpss <- function(ens, ens.ref, obs) {
+  SkillScore(EnsCrps(ens, obs), EnsCrps(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+
+
+#' Calculate EnsRps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @return EnsRps skill score
+#' @seealso SkillScore EnsRps
+#' @export
+
+EnsRpss <- function(ens, ens.ref, obs) {
+  SkillScore(EnsRps(ens, obs), EnsRps(ens.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate FairBrier Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @param tau not used
+#' @return FairBrier skill score
+#' @seealso SkillScore EnsBrier
+#' @export
+
+FairBrierSs <- function(ens, ens.ref, obs, tau=NA) {
+  SkillScore(EnsBrier(ens, obs, R.new=Inf), EnsBrier(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+#' Calculate FairCrps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @return FairCrps skill score
+#' @seealso SkillScore EnsCrps
+#' @export
+
+FairCrpss <- function(ens, ens.ref, obs) {
+  SkillScore(EnsCrps(ens, obs, R.new=Inf), EnsCrps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+}
+
+
+
+
+
+
+
+#' Calculate FairRps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param ens the ensemble 
+#' @param ens.ref the reference ensemble
+#' @param obs the observation
+#' @return FairRps skill score
+#' @seealso SkillScore EnsRps
+#' @export
+
+FairRpss <- function(ens, ens.ref, obs) {
+  SkillScore(EnsRps(ens, obs, R.new=Inf), EnsRps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
+
+}
+
+
+
+
+#' Calculate GaussCrps Skill Score (deprecated, use function SkillScore instead)
+#'
+#' @param mean forecast means
+#' @param sd forecast standard deviations
+#' @param mean.ref reference forecast means
+#' @param sd.ref reference forecast standard deviations
+#' @param obs the observation
+#' @return GaussCrps skill score
+#' @seealso SkillScore GaussCrps
+#' @export
+
+GaussCrpss <- function(mean, sd, mean.ref, sd.ref, obs) {
+  SkillScore(GaussCrps(mean, sd, obs), GaussCrps(mean.ref, sd.ref, obs), handle.na="use.pairwise.complete")
+}
+
+
+
+
