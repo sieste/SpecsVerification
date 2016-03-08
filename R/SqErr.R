@@ -4,9 +4,8 @@
 #' @param obs a N-vector representing N time instances of real-valued observations
 #' @return numeric N-vector of squared errors
 #' @examples
-#' fcst <- rnorm(20)
-#' obs <- rnorm(20)
-#' mean(SqErr(fcst, obs))
+#' data(eurotempforecast)
+#' mean(SqErr(rowMeans(ens), obs))
 #' @seealso AbsErr, ScoreDiff, SkillScore
 #' @export
 

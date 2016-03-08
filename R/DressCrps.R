@@ -4,10 +4,9 @@
 #' @param obs a numeric vector of length N with real-valued observations
 #' @return numeric vector of length N with the CRPS values
 #' @examples
-#' ens <- matrix(rnorm(100), 20, 5)
+#' data(eurotempforecast)
 #' dressed.ens <- DressEnsemble(ens)
-#' obs <- rnorm(20)
-#' mean(DressCrps(dressed.ens, obs, R.new=Inf))
+#' mean(DressCrps(dressed.ens, obs))
 #' @seealso EnsCrps, ScoreDiff, SkillScore
 #' @references Grimit et al (2006): The continuous ranked probability score for circular variables and its application to mesoscale forecast ensemble verification. Q.J.R. Meteorol. Soc. http://dx.doi.org/10.1256/qj.05.235
 #' @useDynLib SpecsVerification2

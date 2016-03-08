@@ -20,9 +20,8 @@ numeric vector of length N with the ensemble-adjusted Brier scores
 Calculate the ensemble-adjusted Brier Score
 }
 \examples{
-ens <- matrix(rbinom(100, 1, 0.3), 20, 5)
-obs <- rbinom(20, 1, 0.3)
-mean(EnsBrier(ens, obs, R.new=Inf))
+data(eurotempforecast)
+mean(EnsBrier(ens.bin, obs.bin, R.new=Inf))
 }
 \references{
 Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. doi: 10.1002/met.45

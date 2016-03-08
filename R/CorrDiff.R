@@ -8,10 +8,8 @@
 #' @param handle.na how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.triplets'; default: 'na.fail'
 #' @return vector with correlation difference, one-sided p-value, and central confidence interval at the user-defined confidence level
 #' @examples
-#' fcst <- rnorm(20)
-#' fcst.ref <- rnorm(20)
-#' obs <- rnorm(20)
-#' CorrDiff(fcst, fcst.ref, obs)
+#' data(eurotempforecast)
+#' CorrDiff(rowMeans(ens), ens[, 1], obs)
 #' @seealso Corr
 #' @references Steiger (1980): Tests for comparing elements of a correlation matrix. Psychological Bulletin. http://dx.doi.org/10.1037/0033-2909.87.2.245 
 #' Zou (2007): Toward using confidence intervals to compare correlations. Psychological Methods. http://dx.doi.org/10.1037/1082-989X.12.4.399

@@ -20,10 +20,8 @@ numeric vector of length N with the ensemble-adjusted RPS values
 Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts
 }
 \examples{
-# N=5 time instances, R=10 ensemble members
-ens <- matrix(c(1,3,2, 1,2,3), nrow=3, ncol=2)
-obs <- c(1,3,2)
-EnsRps(ens, obs, R.new=Inf)
+data(eurotempforecast)
+EnsRps(ens.cat, obs.cat, R.new=Inf)
 }
 \references{
 n/a

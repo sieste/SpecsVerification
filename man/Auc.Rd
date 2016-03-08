@@ -20,9 +20,8 @@ vector containing AUC and its estimated standard deviation
 Calculate area under the ROC curve (AUC) for a forecast and its verifying binary observation, and estimate the variance of the AUC
 }
 \examples{
-fcst <- runif(20)
-obs <- rbinom(n=20, size=1, prob=fcst)
-Auc(fcst, obs)
+data(eurotempforecast)
+Auc(rowMeans(ens.bin), obs.bin)
 }
 \references{
 DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. http://dx.doi.org/10.2307/2531595

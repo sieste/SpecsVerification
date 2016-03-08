@@ -4,12 +4,9 @@
 #' @param obs a numeric vector of length N with real-valued observations
 #' @return numeric vector of length N with the Ignorance score values
 #' @examples
-#' ens <- matrix(rnorm(100),20,5)
-#' ens.ref <- ens + 0.2
-#' obs <- rnorm(20)
+#' data(eurotempforecast)
 #' d.ens <- DressEnsemble(ens)
-#' d.ens.ref <- DressEnsemble(ens.ref)
-#' DressIgnSs(d.ens, d.ens.ref, obs)
+#' DressIgn(d.ens, obs)
 #' @seealso DressEnsemble, DressCrps
 #' @references Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, doi: 10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2
 #' @export

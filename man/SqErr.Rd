@@ -18,9 +18,8 @@ numeric N-vector of squared errors
 Calculate the squared error between forecast and observation
 }
 \examples{
-fcst <- rnorm(20)
-obs <- rnorm(20)
-mean(SqErr(fcst, obs))
+data(eurotempforecast)
+mean(SqErr(rowMeans(ens), obs))
 }
 \seealso{
 AbsErr, ScoreDiff, SkillScore

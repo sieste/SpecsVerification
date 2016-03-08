@@ -10,7 +10,7 @@
 #' To estimate the calibration curve, the unit line is categorised into discrete bins, provided by the `bins` argument. If `bins` is a single number, it specifies the number of equidistant bins. If `bins` is a vector of values between zero and one, these values are used as the bin-breaks. 
 #' @examples
 #' data(eurotempforecast)
-#' BrierDecomp(p.bin, obs.bin, bins=3, bias.corrected=TRUE)
+#' BrierDecomp(rowMeans(ens.bin), obs.bin, bins=3, bias.corrected=TRUE)
 #' @seealso ReliabilityDiagram
 #' @references
 #' Murphy (1973): A New Vector Partition of the Probability Score. J. Appl. Met. http://dx.doi.org/10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2

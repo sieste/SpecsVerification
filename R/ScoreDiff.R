@@ -7,10 +7,8 @@
 #' @param handle.na how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
 #' @return vector with mean score difference, estimated standard error of the mean, one-sided p-value of the Diebold-Mariano test, and the user-specified confidence interval
 #' @examples
-#' fcst <- rnorm(20)
-#' fcst.ref <- rnorm(20)
-#' obs <- rnorm(20)
-#' ScoreDiff(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+#' data(eurotempforecast)
+#' ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
 #' @seealso SkillScore
 #' @references Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Economic Statistics. http://dx.doi.org/10.2307/1392185
 #' @export

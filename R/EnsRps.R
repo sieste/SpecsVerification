@@ -5,10 +5,8 @@
 #' @param R.new ensemble size for which the scores should be adjusted
 #' @return numeric vector of length N with the ensemble-adjusted RPS values
 #' @examples
-#' # N=5 time instances, R=10 ensemble members
-#' ens <- matrix(c(1,3,2, 1,2,3), nrow=3, ncol=2)
-#' obs <- c(1,3,2)
-#' EnsRps(ens, obs, R.new=Inf)
+#' data(eurotempforecast)
+#' EnsRps(ens.cat, obs.cat, R.new=Inf)
 #' @seealso EnsBrier, EnsQs, EnsCrps
 #' @references n/a
 #' @export

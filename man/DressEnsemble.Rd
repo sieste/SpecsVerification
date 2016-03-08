@@ -28,8 +28,7 @@ The dressing methods currently implemented and their required parameters are:
 }
 }
 \examples{
-ens <- matrix(rnorm(500),100,5)
-obs <- rnorm(100)
+data(eurotempforecast)
 d.silverman <- DressEnsemble(ens)
 d.akd <- DressEnsemble(ens, dressing.method="akd",
                        parameters=list(r1=0, r2=0, a=1,

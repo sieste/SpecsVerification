@@ -18,9 +18,8 @@ numeric N-vector of absolute errors |fcst - obs|
 Calculate the absolute error between forecast and observation
 }
 \examples{
-fcst <- rnorm(20)
-obs <- rnorm(20)
-mean(AbsErr(fcst, obs))
+data(eurotempforecast)
+mean(AbsErr(rowMeans(ens), obs))
 }
 \seealso{
 SqErr, ScoreDiff, SkillScore

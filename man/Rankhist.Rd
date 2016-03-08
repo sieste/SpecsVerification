@@ -22,10 +22,8 @@ a vector of length (K+1)/reduce.bins containing the rank counts
 Calculate the rank histogram for an archive of ensemble forecasts and their corresponding verifying observations.
 }
 \examples{
-# Example:
- ens <- matrix(rnorm(500),100,5)
- obs <- rnorm(100)
- rh <- Rankhist(ens, obs, reduce.bins=2)
+data(eurotempforecast)
+rh <- Rankhist(ens, obs)
 }
 \references{
 Anderson J.L. (1996). A Method for Producing and Evaluating Probabilistic Forecasts from Ensemble Model Integrations. J. Climate, 9, 1518--1530. DOI 10.1175/1520-0442(1996)009%3C1518:AMFPAE%3E2.0.CO;2.

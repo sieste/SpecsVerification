@@ -27,10 +27,8 @@ vector with correlation difference, one-sided p-value, and central confidence in
 Calculate correlation difference between a forecast and a reference forecast, and assess uncertainty
 }
 \examples{
-fcst <- rnorm(20)
-fcst.ref <- rnorm(20)
-obs <- rnorm(20)
-CorrDiff(fcst, fcst.ref, obs)
+data(eurotempforecast)
+CorrDiff(rowMeans(ens), ens[, 1], obs)
 }
 \references{
 Steiger (1980): Tests for comparing elements of a correlation matrix. Psychological Bulletin. http://dx.doi.org/10.1037/0033-2909.87.2.245

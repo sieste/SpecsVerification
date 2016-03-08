@@ -5,8 +5,7 @@
 #' @param R.new ensemble size for which the scores should be adjusted
 #' @return numeric vector of length N with the ensemble-adjusted CRPS values
 #' @examples
-#' ens <- matrix(rnorm(100), 20, 5)
-#' obs <- rnorm(20)
+#' data(eurotempforecast)
 #' mean(EnsCrps(ens, obs, R.new=Inf))
 #' @seealso EnsBrier, EnsRps, DressCrps, GaussCrps, ScoreDiff, SkillScore
 #' @references Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. http://dx.doi.org/10.1002/met.45

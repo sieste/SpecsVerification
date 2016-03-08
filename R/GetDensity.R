@@ -10,8 +10,7 @@
 #'
 #' To calculate the PIT values for the dressed ensemble and observations `obs`, use `GetDensity(dressed.ens, x = matrix(obs, ncol=1), integrated=TRUE)`
 #' @examples
-#'  ens <- matrix(rnorm(500),100,5)
-#'  obs <- rnorm(100)
+#'  data(eurotempforecast)
 #'  dressed.ens <- DressEnsemble(ens)
 #'  # calculate each density at the same x-values
 #'  x1 <- matrix(seq(-3, 3, 0.1), nrow=1)

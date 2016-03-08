@@ -26,7 +26,7 @@ To estimate the calibration curve, the unit line is categorised into discrete bi
 }
 \examples{
 data(eurotempforecast)
-BrierDecomp(p.bin, obs.bin, bins=3, bias.corrected=TRUE)
+BrierDecomp(rowMeans(ens.bin), obs.bin, bins=3, bias.corrected=TRUE)
 }
 \references{
 Murphy (1973): A New Vector Partition of the Probability Score. J. Appl. Met. http://dx.doi.org/10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2

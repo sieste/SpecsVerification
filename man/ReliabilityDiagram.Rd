@@ -37,9 +37,9 @@ Reliability diagram for probability forecasts
 To estimate the reliability curve, the unit line is categorised into discrete bins, provided by the `bins` argument. If `bins` is a single number, it specifies the number of equidistant bins. If `bins` is a vector of values between zero and one, these values are used as the bin-breaks.
 }
 \examples{
-p <- runif(100)
-y <- rbinom(n=100, size=1, prob=p)
-ReliabilityDiagram(p, y, plot=TRUE)
+data(eurotempforecast)
+p <- rowMeans(ens.bin)
+ReliabilityDiagram(p, obs.bin, plot=TRUE)
 }
 \references{
 Jolliffe IT, Stephenson DB, eds. (2012): Forecast verification: A practitioner's guide in atmospheric science. John Wiley & Sons, 2012. ISBN: 978-0-470-66071-3

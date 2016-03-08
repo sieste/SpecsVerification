@@ -5,9 +5,8 @@
 #' @param handle.na how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.pairs'; default: 'na.fail'
 #' @return vector containing AUC and its estimated standard deviation
 #' @examples
-#' fcst <- runif(20)
-#' obs <- rbinom(n=20, size=1, prob=fcst)
-#' Auc(fcst, obs)
+#' data(eurotempforecast)
+#' Auc(rowMeans(ens.bin), obs.bin)
 #' @seealso AucDiff
 #' @references DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. http://dx.doi.org/10.2307/2531595
 #' @export

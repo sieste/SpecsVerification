@@ -29,8 +29,7 @@ The parameters r1, r2, a, s1, s2 are fitted by minimizing the continuously ranke
 Since the evaluation of the CRPS is numerically expensive, the optimization can take a long time. Speed can be increased by optimizing the parameters only for a part of the forecast instances.
 }
 \examples{
-ens <- matrix(rnorm(500),100,5)
-obs <- rnorm(100)
+data(eurotempforecast)
 FitAkdParameters(ens, obs)
 }
 \references{

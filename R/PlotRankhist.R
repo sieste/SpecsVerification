@@ -8,11 +8,9 @@
 #'
 #' prob.paper: The individual counts given by `rank.hist` are transformed to their cumulative probabilities under the binomial distribution with parameters `N` and `1/K`, where `N=sum(rank.hist)` and `K=length(rank.hist)`. This transformation makes possible an assessment of the observed rank counts under the hypothesis of equally likely ranks. The y-axis on the left indicates the cumulative probabilities. The intervals on the right of the plot indicate central 90, 95, and 99 percent _simultaneous_ confidence intervals. That is, if all ranks were equally likely on average, approximately 90 percent of all rank histograms would be _completely_ contained in the 90 percent interval and approximately 10 percent of all rank histograms would have _at least_ one bar that falls outside this interval.
 #' @examples
-#'  # Example:
-#'  ens <- matrix(rnorm(500),100,5)
-#'  obs <- rnorm(100)
-#'  rank.hist <- Rankhist(ens, obs)
-#'  PlotRankhist(rank.hist, mode="prob.paper")
+#' data(eurotempforecast)
+#' rank.hist <- Rankhist(ens, obs)
+#' PlotRankhist(rank.hist, mode="prob.paper")
 #' @references
 #' Anderson J.L. (1996). A Method for Producing and Evaluating Probabilistic Forecasts from Ensemble Model Integrations. J. Climate, 9, 1518--1530. DOI 10.1175/1520-0442(1996)009%3C1518:AMFPAE%3E2.0.CO;2.
 #' Broecker J. (2008). On reliability analysis of multi-categorical forecasts. Nonlin. Processes Geophys., 15, 661-673, DOI 10.5194/npg-15-661-2008.

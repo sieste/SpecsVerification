@@ -24,9 +24,8 @@ vector with correlation, one-sided p-value, and central confidence interval at t
 Calculate correlation between forecasts and observations, and assess uncertainty
 }
 \examples{
-fcst <- rnorm(20)
-obs <- rnorm(20)
-Corr(fcst, obs)
+data(eurotempforecast)
+Corr(rowMeans(ens), obs)
 }
 \references{
 Von Storch, Zwiers (2001): Statistical analysis in climate research. Cambridge University Press.

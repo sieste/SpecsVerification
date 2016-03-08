@@ -20,8 +20,7 @@ numeric vector of length N with the ensemble-adjusted CRPS values
 Calculate the ensemble-adjusted Continuous Ranked Probability Score (CRPS)
 }
 \examples{
-ens <- matrix(rnorm(100), 20, 5)
-obs <- rnorm(20)
+data(eurotempforecast)
 mean(EnsCrps(ens, obs, R.new=Inf))
 }
 \references{

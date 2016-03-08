@@ -25,8 +25,7 @@ none
 Plot a series forecast distributions of dressed ensembles
 }
 \examples{
-ens <- matrix(rnorm(20),4,5)
-obs <- rnorm(4)
+data(eurotempforecast)
 d.ens <- DressEnsemble(ens)
 PlotDressedEns(d.ens, add=FALSE, obs=obs, plot.ens=FALSE, plot.ker=TRUE)
 }

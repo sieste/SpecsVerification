@@ -6,7 +6,7 @@
 #' @param leave.one.out logical, default=FALSE. If TRUE, the n-th observation is removed from the n-th row of the ensemble matrix.
 #' @return matrix with N rows and N-1 columns (if leave.one.out==TRUE) or N columns otherwise. 
 #' @examples
-#' obs <- rnorm(10)
+#' data(eurotempforecast)
 #' ClimEns(obs)
 #' @export
 ClimEns <- function(obs, leave.one.out=FALSE) {

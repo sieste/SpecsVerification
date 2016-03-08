@@ -18,7 +18,7 @@ matrix with N rows and N-1 columns (if leave.one.out==TRUE) or N columns otherwi
 Construct a climatological ensemble from a vector of observations. Optionally, the climatological ensemble observation at time t can be constructed without the observation at time t (leave-one-out).
 }
 \examples{
-obs <- rnorm(10)
+data(eurotempforecast)
 ClimEns(obs)
 }
 

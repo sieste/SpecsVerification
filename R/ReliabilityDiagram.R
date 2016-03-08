@@ -11,9 +11,9 @@
 #' @param handle.na how should missing values be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
 #' @return a data.frame with nrows equal to the number of bins (given by the `bins` argument), with columns: average forecast probability per bin, conditional event frequency per bin, lower and upper limit of the consistency bar per bin, number of forecast probabilities per bin, lower and upper bin limit
 #' @examples
-#' p <- runif(100)
-#' y <- rbinom(n=100, size=1, prob=p)
-#' ReliabilityDiagram(p, y, plot=TRUE)
+#' data(eurotempforecast)
+#' p <- rowMeans(ens.bin)
+#' ReliabilityDiagram(p, obs.bin, plot=TRUE)
 #' @details
 #' To estimate the reliability curve, the unit line is categorised into discrete bins, provided by the `bins` argument. If `bins` is a single number, it specifies the number of equidistant bins. If `bins` is a vector of values between zero and one, these values are used as the bin-breaks. 
 #' @references 

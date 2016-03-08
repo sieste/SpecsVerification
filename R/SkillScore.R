@@ -7,10 +7,8 @@
 #' @param handle.na how should missing values in scores vectors be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
 #' @return vector with skill score and its estimated standard deviation
 #' @examples
-#' fcst <- rnorm(20)
-#' fcst.ref <- rnorm(20)
-#' obs <- rnorm(20)
-#' SkillScore(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+#' data(eurotempforecast)
+#' SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
 #' @seealso ScoreDiff
 #' @export
 SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na.fail") {

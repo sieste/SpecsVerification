@@ -5,10 +5,8 @@
 #' @param R.new ensemble size for which the scores should be adjusted
 #' @return numeric vector of length N with the ensemble-adjusted quadratic score values
 #' @examples
-#' # N=5 time instances, R=10 ensemble members
-#' ens <- matrix(c(1,3,2, 1,2,3), nrow=3, ncol=2)
-#' obs <- c(1,3,2)
-#' EnsQs(ens, obs, R.new=Inf)
+#' data(eurotempforecast)
+#' EnsQs(ens.cat, obs.cat, R.new=Inf)
 #' @details It is assumed that the smallest class index is 1, and the largest class index is calculated by max(c(ens,obs))
 #' @seealso EnsBrier, EnsRps, EnsCrps, ScoreDiff, SkillScore
 #' @references n/a

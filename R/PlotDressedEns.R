@@ -7,8 +7,7 @@
 #'  @param plot.ker logical, default=FALSE. If TRUE, the individual dressing kernels are plotted.
 #' @return none
 #' @examples
-#' ens <- matrix(rnorm(20),4,5)
-#' obs <- rnorm(4)
+#' data(eurotempforecast)
 #' d.ens <- DressEnsemble(ens)
 #' PlotDressedEns(d.ens, add=FALSE, obs=obs, plot.ens=FALSE, plot.ker=TRUE)
 #' @seealso DressEnsemble

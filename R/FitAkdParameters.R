@@ -16,8 +16,7 @@
 #' Since the evaluation of the CRPS is numerically expensive, the optimization can take a long time. Speed can be increased by optimizing the parameters only for a part of the forecast instances.
 #'
 #' @examples
-#' ens <- matrix(rnorm(500),100,5)
-#' obs <- rnorm(100)
+#' data(eurotempforecast)
 #' FitAkdParameters(ens, obs)
 #' @seealso DressEnsemble, DressCrps, DressIgn, PlotDressedEns, GetDensity
 #' @references

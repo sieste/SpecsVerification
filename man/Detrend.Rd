@@ -18,9 +18,8 @@ The function returns an object of the same dimensions as the argument `x`, but w
 Detrend fits a linear function to a time-series of observations or to the time-series of ensemble means of an ensemble matrix. The linear trend is removed, and if option demean is true, the total mean is removed as well.
 }
 \examples{
-ens <- matrix(1:10+rnorm(10), 5, 2)
+data(eurotempforecast)
  Detrend(ens)
- obs <- 1:10 + rnorm(10)
  Detrend(obs, demean=FALSE)
 }
 

@@ -7,10 +7,8 @@
 #' @param handle.na how should missing values in ensemble and observation data be handled; possible values are 'na.fail' (fails if any data is missing) and 'use.complete' (only uses times where all ensemble members and obs are available); default: 'na.fail'
 #' @return a vector of length (K+1)/reduce.bins containing the rank counts
 #' @examples 
-#'  # Example:
-#'  ens <- matrix(rnorm(500),100,5)
-#'  obs <- rnorm(100)
-#'  rh <- Rankhist(ens, obs, reduce.bins=2)
+#' data(eurotempforecast)
+#' rh <- Rankhist(ens, obs)
 #' @references Anderson J.L. (1996). A Method for Producing and Evaluating Probabilistic Forecasts from Ensemble Model Integrations. J. Climate, 9, 1518--1530. DOI 10.1175/1520-0442(1996)009%3C1518:AMFPAE%3E2.0.CO;2.
 #' Hammill T.M. (2001). Interpretation of Rank Histograms for Verifying Ensemble Forecasts. Mon. Wea. Rev., 129, 550--560. DOI 10.1175/1520-0493(2001)129%3C0550:IORHFV%3E2.0.CO;2.
 #' @seealso PlotRankhist, TestRankhist

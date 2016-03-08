@@ -25,10 +25,8 @@ vector with skill score and its estimated standard deviation
 Calculate a skill score and assess uncertainty
 }
 \examples{
-fcst <- rnorm(20)
-fcst.ref <- rnorm(20)
-obs <- rnorm(20)
-SkillScore(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+data(eurotempforecast)
+SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
 }
 \seealso{
 ScoreDiff

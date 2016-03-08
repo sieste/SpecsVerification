@@ -5,9 +5,9 @@
 #' @param obs A numeric vector of length N of real-valued verifying observations
 #' @return numeric vector of length N with the CRPS values
 #' @examples
-#' mean <- rnorm(20)
-#' sd <- 1+runif(20)
-#' obs <- rnorm(20)
+#' data(eurotempforecasts)
+#' mean <- rowMeans(ens)
+#' sd <- apply(ens, 1, sd)
 #' mean(GaussCrps(mean, sd, obs))
 #' @seealso EnsCrps, DressCrps, ScoreDiff, SkillScore
 #' @references Gneiting et al (2005). Calibrated Probabilistic Forecasting Using Ensemble Model Output Statistics and Minimum CRPS Estimation. Mon. Wea. Rev. DOI: 10.1175/MWR2904.1

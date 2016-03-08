@@ -7,9 +7,8 @@
 #' @param handle.na how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
 #' @return vector with correlation, one-sided p-value, and central confidence interval at the user-defined confidence level
 #' @examples
-#' fcst <- rnorm(20)
-#' obs <- rnorm(20)
-#' Corr(fcst, obs)
+#' data(eurotempforecast)
+#' Corr(rowMeans(ens), obs)
 #' @seealso CorrDiff
 #' @references Von Storch, Zwiers (2001): Statistical analysis in climate research. Cambridge University Press.
 #' @export

@@ -5,9 +5,8 @@
 #' @param demean logical; if true, the total mean is removed from x
 #' @return The function returns an object of the same dimensions as the argument `x`, but with its linear trend and (possibly) its mean removed.
 #' @examples
-#'  ens <- matrix(1:10+rnorm(10), 5, 2)
+#'  data(eurotempforecast)
 #'  Detrend(ens)
-#'  obs <- 1:10 + rnorm(10)
 #'  Detrend(obs, demean=FALSE)
 #' @export
 

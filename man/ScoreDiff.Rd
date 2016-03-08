@@ -25,10 +25,8 @@ vector with mean score difference, estimated standard error of the mean, one-sid
 Calculate average score difference and assess uncertainty
 }
 \examples{
-fcst <- rnorm(20)
-fcst.ref <- rnorm(20)
-obs <- rnorm(20)
-ScoreDiff(SqErr(fcst, obs), SqErr(fcst.ref, obs))
+data(eurotempforecast)
+ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
 }
 \references{
 Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Economic Statistics. http://dx.doi.org/10.2307/1392185

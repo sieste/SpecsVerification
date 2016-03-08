@@ -14,11 +14,9 @@
 #' 
 #' onto a linear, respectively squared contrast, i.e. a linear and quadratic function defined over the index set 1:length(x), who are mutually orthogonal, whose elements sum to zero, and whose squared elements sum to one. The projections independently have chi^2 distributions with 1 degree of freedom under the null hypothesis of a flat rank histogram.
 #' @examples
-#'  # Example:
-#'  ens <- matrix(rnorm(500),100,5)
-#'  obs <- rnorm(100)
-#'  rh <- Rankhist(ens, obs)
-#'  TestRankhist(rh)
+#' data(eurotempforecast)
+#' rh <- Rankhist(ens, obs)
+#' TestRankhist(rh)
 #' @seealso Rankhist, PlotRankhist
 #' @references
 #' Pearson K. (1900): X. On the criterion that a given system of deviations from the probable in the case of a correlated system of variables is such that it can be reasonably supposed to have arisen from random sampling.  Phil. Mag. Series 5, 50(302) DOI: 10.1080/14786440009463897.
