@@ -3,6 +3,7 @@
 export(AbsErr)
 export(Auc)
 export(AucDiff)
+export(BrierDecomp)
 export(ClimEns)
 export(Corr)
 export(CorrDiff)
