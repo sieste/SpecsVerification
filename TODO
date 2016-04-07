@@ -1,12 +1,9 @@
 - check references in documentation
-- fill in @seealso fields
-- check examples
-- check cross references between ensemble score functions
 - check consistent formulations in documention of function arguments
 - rename SpecsVerification2 to SpecsVerification in *all* files (use grep,
-  seriously)
+  seriously!)
 
-missing methods:
+methods from SpecsVerification not implemented:
 
 !SpecsVerification::BrierScoreDecomposition
 !SpecsVerification::GaussCrpsDecomposition 
