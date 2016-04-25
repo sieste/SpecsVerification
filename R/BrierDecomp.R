@@ -1,6 +1,7 @@
 #' Brier Score decomposition
 #'
 #' @description Return decomposition of the Brier Score into Reliability, Resolution and Uncertainty, and estimated standard deviations
+#' @aliases BrierScoreDecomposition BrierDecomp
 #' @param p vector of forecast probabilities
 #' @param y binary observations, y[t]=1 if an event happens at time t, and y[t]=0 otherwise
 #' @param bins binning to estimate the calibration function (see Details), default: 10
@@ -218,3 +219,5 @@ BrierDecomp <- function(p, y, bins=10, bias.corrected=FALSE) {
   return(ans)
 }
 
+#' @export
+BrierScoreDecomposition <- BrierDecomp

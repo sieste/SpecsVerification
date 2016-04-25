@@ -2,6 +2,7 @@
 % Please edit documentation in R/BrierDecomp.R
 \name{BrierDecomp}
 \alias{BrierDecomp}
+\alias{BrierScoreDecomposition}
 \title{Brier Score decomposition}
 \usage{
 BrierDecomp(p, y, bins = 10, bias.corrected = FALSE)
