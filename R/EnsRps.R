@@ -36,7 +36,7 @@ EnsRps <- function(ens, obs, R.new=NA) {
     if (R.new < 2) {
       rps <- rps + NA
     } else {
-      adjustment <- rowMeans(-1 * (1/R - 1/R.new) * ens.cum * (R - ens.cum) / R / (R-1))
+      adjustment <- rowSums(-1 * (1/R - 1/R.new) * ens.cum * (R - ens.cum) / R / (R-1))
       # catch one-member ensembles, which cannot be adjusted
       adjustment[!is.finite(adjustment)] <- NA
       rps <- rps + adjustment
