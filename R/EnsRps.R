@@ -1,8 +1,9 @@
 #' Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts
 #'
-#' @param ens a N*R matrix representing N time instances of categorical ensemble forecasts; ens[t,r] indicates the category that the r-th ensemble member predicts for time t
-#' @param obs a vector of length N, with obs[t] is the category observed at time t
-#' @param R.new ensemble size for which the scores should be adjusted
+#' @param ens matrix with N rows representing N time instances of categorical ensemble forecasts as follows: If `format = category` (the default), then ens[t,r] indicates the category that the r-th ensemble member predicts for time t. If `format = members`, then ens[t,k] is the number of ensemble members that predict category k at time t.
+#' @param obs vector of length N, or matrix with N rows, representing the N observed category as follows: If `format = category', obs is a vector and obs[t] is the category observed at time t. If `format = members`, obs is a matrix where obs[t,k] = 1 (and zero otherwise) if category k was observed at time t
+#' @param R.new ensemble size for which the scores should be adjusted, defaults to NA (no adjustment)
+#' @param format string, 'category' (default) or 'members' (can be abbreviated). See descriptions of arguments `ens` and `obs` for details.
 #' @return numeric vector of length N with the ensemble-adjusted RPS values
 #' @examples
 #' data(eurotempforecast)
@@ -10,12 +11,20 @@
 #' @seealso EnsBrier, EnsQs, EnsCrps
 #' @references n/a
 #' @export
-EnsRps <- function(ens, obs, R.new=NA) {
+EnsRps <- function(ens, obs, R.new=NA, format=c('category', 'members')) {
 
-  ## calculate histogram at each time, the tabulate function automatically removes NAs and NaNs
-  K <- max(c(ens,obs), na.rm=TRUE)
-  ens.hist <- t(apply(ens, 1, tabulate, nbins=K))
-  obs.hist <- t(sapply(obs, tabulate, nbins=K))
+  format = match.arg(format)
+  
+  if (format == 'category') {
+    ## calculate histogram at each time, the tabulate function automatically removes NAs and NaNs
+    K <- max(c(ens,obs), na.rm=TRUE)
+    ens.hist <- t(apply(ens, 1, tabulate, nbins=K))
+    obs.hist <- t(sapply(obs, tabulate, nbins=K))
+  } else {
+    K <- ncol(ens)
+    ens.hist <- ens
+    obs.hist <- obs
+  }
 
   ## calculate time length, and ensemble sizes at each time
   N <- nrow(ens.hist)
