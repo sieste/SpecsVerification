@@ -9,9 +9,7 @@
 #' mean(DressCrps(dressed.ens, obs))
 #' @seealso EnsCrps, ScoreDiff, SkillScore
 #' @references Grimit et al (2006): The continuous ranked probability score for circular variables and its application to mesoscale forecast ensemble verification. Q.J.R. Meteorol. Soc. http://dx.doi.org/10.1256/qj.05.235
-#' @useDynLib SpecsVerification
 #' @export
-
 DressCrps <- function(dressed.ens, obs) {
 
   stopifnot(all(dim(dressed.ens[["ens"]]) == dim(dressed.ens[["ker.wd"]])))
@@ -19,35 +17,14 @@ DressCrps <- function(dressed.ens, obs) {
   N <- nrow(dressed.ens[["ens"]])
   K.vec <- rowSums(!is.na(dressed.ens[["ens"]]))
 
-  if (is.loaded("dresscrps")) {
-    # C implementation
-    crps <- sapply(1:N, function(ii) {
-              .C("dresscrps", PACKAGE="SpecsVerification", 
-              as.double(dressed.ens[["ens"]][ii,]), as.integer(K.vec[ii]),
-              as.double(dressed.ens[["ker.wd"]][ii,]), as.double(obs[ii]), 
-              tmp=double(1))[["tmp"]]
+  crps <- sapply(
+            seq_len(nrow(dressed.ens[['ens']])), 
+            function(ii) {
+              dresscrps(dressed.ens[['ens']][ii,], 
+                        dressed.ens[['ker.wd']][ii,], 
+                        obs[ii])
             })
-  } else {
-    # native R implementation (slow!)
-    crps <- with(dressed.ens, {
-      sapply(1:N, function(ii) {
-        s <- ker.wd[ii, ]
-        K <- K.vec[ii]
 
-        g1 <- data.frame(e.i=ens[ii, ], ei.y=(ens[ii, ] - obs[ii]), s.i=s)
-        crps.i <- with(g1, ei.y * (2 * pnorm(ei.y / s.i) - 1)
-                  + 2 * s.i * dnorm(ei.y / s.i)- s.i / K / sqrt(pi))
-        g2 <- data.frame(expand.grid(i=1:K, j=1:K))
-        g2 <- g2[with(g2, j < i), ]
-        g2$ei.ej <- with(g2, ens[ii, j] - ens[ii, i])
-        g2$si.sj <- with(g2, sqrt(s[i] ^ 2 + s[j] ^ 2))
-        crps.ij <- with(g2, ei.ej * (2 * pnorm(ei.ej / si.sj) - 1)
-                   + 2 * si.sj * dnorm(ei.ej / si.sj))
-        sum(crps.i) / K - sum(crps.ij) / K / K
-      })
-    })
-  }
-
-  crps
+  return(crps)
 }
 
