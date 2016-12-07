@@ -1,3 +1,4 @@
 Makefile
-
 README.md
+.gitignore
+.git
