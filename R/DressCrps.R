@@ -9,7 +9,7 @@
 #' mean(DressCrps(dressed.ens, obs))
 #' @seealso EnsCrps, ScoreDiff, SkillScore
 #' @references Grimit et al (2006): The continuous ranked probability score for circular variables and its application to mesoscale forecast ensemble verification. Q.J.R. Meteorol. Soc. http://dx.doi.org/10.1256/qj.05.235
-#' @useDynLib SpecsVerification2
+#' @useDynLib SpecsVerification
 #' @export
 
 DressCrps <- function(dressed.ens, obs) {
@@ -22,7 +22,7 @@ DressCrps <- function(dressed.ens, obs) {
   if (is.loaded("dresscrps")) {
     # C implementation
     crps <- sapply(1:N, function(ii) {
-              .C("dresscrps", PACKAGE="SpecsVerification2", 
+              .C("dresscrps", PACKAGE="SpecsVerification", 
               as.double(dressed.ens[["ens"]][ii,]), as.integer(K.vec[ii]),
               as.double(dressed.ens[["ker.wd"]][ii,]), as.double(obs[ii]), 
               tmp=double(1))[["tmp"]]
