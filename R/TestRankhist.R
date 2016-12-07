@@ -78,7 +78,7 @@ TestRankhist <- function(rank.hist) {
   X2.u <- sum(x.i * x.u)^2 # should have chisq(df=1)
 
   # return 
-  ret.df <- data.frame(pearson.chi2=c(X2, p.chisq), jp.slope=c(X2.lin, pchisq(X2.lin, df=1, lower.tail=FALSE)), jp.convex=c(X2.u, pchisq(X2.u, df=1, lower.tail=FALSE)))
+  ret.df <- data.frame(pearson.chi2=c(X2, p.chisq), jp.lin=c(X2.lin, pchisq(X2.lin, df=1, lower.tail=FALSE)), jp.sq=c(X2.u, pchisq(X2.u, df=1, lower.tail=FALSE)))
   rownames(ret.df) <- c("test.statistic", "p.value")
   ret.df
 }
