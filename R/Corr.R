@@ -45,7 +45,7 @@ Corr <- function(fcst, obs, N.eff=NA, conf.level=0.95, handle.na="na.fail") {
   
 
   ## calculate correlation
-  cc <- cor(obs, ens.mean)
+  cc <- cor(obs, fcst)
 
 
   # calculate confidence interval by Fisher z-transform, return NA if N < 4
