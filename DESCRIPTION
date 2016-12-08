@@ -10,4 +10,5 @@ Description: A collection of new forecast verification routines for the SPECS
 License: GPL (>= 2)
 Imports: Rcpp
 LinkingTo: Rcpp
+Suggests: testthat
 RoxygenNote: 5.0.1

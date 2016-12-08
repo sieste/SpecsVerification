@@ -2,4 +2,5 @@
 .*.swo
 libtmp
 *.tar.gz
+SpecsVerification.Rcheck
 
