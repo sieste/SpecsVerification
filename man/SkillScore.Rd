@@ -26,7 +26,7 @@ Calculate a skill score and assess uncertainty
 }
 \examples{
 data(eurotempforecast)
-SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
+SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1:2], obs))
 }
 \seealso{
 ScoreDiff

@@ -8,7 +8,7 @@
 #' @return vector with skill score and its estimated standard deviation
 #' @examples
 #' data(eurotempforecast)
-#' SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
+#' SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1:2], obs))
 #' @seealso ScoreDiff
 #' @export
 SkillScore <- function(scores, scores.ref, N.eff=NA, score.perf=0, handle.na="na.fail") {
