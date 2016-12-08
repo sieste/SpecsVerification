@@ -23,6 +23,9 @@ libtmp/$(PACKAGE): $(R_PKG_tgz)
 check: $(R_PKG_tgz)
 	R_LIBS=/home/stefan/lib/R R CMD check $(R_PKG_tgz)
 
+test: 
+	$(R) -e 'devtools::test()'
+
 .PHONY: clean
 clean:
 	rm $(R_PKG_tgz);\
