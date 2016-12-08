@@ -31,7 +31,11 @@ EnsCrps <- function(ens, obs, R.new=NA) {
   }
 
   # calculate ensemble-adjusted crps for each time
-  crps <- sad.obs / R - 1/R/(R-1) * (1 - 1/R.new) * sad.ens.half
+  if (is.na(R.new) || all(R == R.new)) {
+    crps <- sad.obs / R - sad.ens.half / R^2
+  } else {
+    crps <- sad.obs / R - 1/(R*(R-1)) * (1 - 1/R.new) * sad.ens.half
+  }
 
   # return the vector of crps
   return(crps)
