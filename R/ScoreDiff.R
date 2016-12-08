@@ -8,7 +8,7 @@
 #' @return vector with mean score difference, estimated standard error of the mean, one-sided p-value of the Diebold-Mariano test, and the user-specified confidence interval
 #' @examples
 #' data(eurotempforecast)
-#' ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens[, 1], obs))
+#' ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens[, 1:2], obs))
 #' @seealso SkillScore
 #' @references Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Economic Statistics. http://dx.doi.org/10.2307/1392185
 #' @export
