@@ -14,5 +14,5 @@ ens.cat = matrix(c(3,3,3, 1,1,1), byrow=TRUE, nrow=2)
 obs.cat = c(3, 1)
 
 test_that('Scores of perfect forecast is zero', {
-expect_equal(EnsBrier(ens.bin, obs.bin), c(0,0))
+  expect_equal(EnsBrier(ens.bin, obs.bin), c(0,0))
 })

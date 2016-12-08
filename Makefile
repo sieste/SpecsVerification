@@ -2,7 +2,7 @@
 
 R := R --vanilla -e '.libPaths("/home/stefan/lib/R")'
 
-PKGFILES := $(shell find R data src man -type f ! -name "*.swp") DESCRIPTION NAMESPACE
+PKGFILES := $(shell find R data src man tests -type f ! -name "*.swp") DESCRIPTION NAMESPACE
 PACKAGE := $(shell awk -F": +" '/^Package/ { print $$2 }' DESCRIPTION)
 VERSION := $(shell awk -F": +" '/^Version/ { print $$2 }' DESCRIPTION)
 R_PKG_tgz := $(PACKAGE)_$(VERSION).tar.gz
