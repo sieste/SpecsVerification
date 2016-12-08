@@ -5,7 +5,7 @@
 #' @param obs A numeric vector of length N of real-valued verifying observations
 #' @return numeric vector of length N with the CRPS values
 #' @examples
-#' data(eurotempforecasts)
+#' data(eurotempforecast)
 #' mean <- rowMeans(ens)
 #' sd <- apply(ens, 1, sd)
 #' mean(GaussCrps(mean, sd, obs))

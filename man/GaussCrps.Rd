@@ -20,7 +20,7 @@ numeric vector of length N with the CRPS values
 Calculate the Continuous Ranked Probability Score (CRPS) for forecasts issued as Normal distributions
 }
 \examples{
-data(eurotempforecasts)
+data(eurotempforecast)
 mean <- rowMeans(ens)
 sd <- apply(ens, 1, sd)
 mean(GaussCrps(mean, sd, obs))
