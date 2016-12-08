@@ -16,7 +16,7 @@ double _dnorm(double x) {
 //' @return crps
 //' @export
 // [[Rcpp::export]]
-double dresscrps(NumericVector m, NumericVector s, double y) {
+double dresscrps_cpp(NumericVector m, NumericVector s, double y) {
   int K = m.size();
 
   double sum1 = 0.0;

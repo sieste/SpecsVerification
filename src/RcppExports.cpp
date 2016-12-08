@@ -5,16 +5,16 @@
 
 using namespace Rcpp;
 
-// dresscrps
-double dresscrps(NumericVector m, NumericVector s, double y);
-RcppExport SEXP SpecsVerification_dresscrps(SEXP mSEXP, SEXP sSEXP, SEXP ySEXP) {
+// dresscrps_cpp
+double dresscrps_cpp(NumericVector m, NumericVector s, double y);
+RcppExport SEXP SpecsVerification_dresscrps_cpp(SEXP mSEXP, SEXP sSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type m(mSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type s(sSEXP);
     Rcpp::traits::input_parameter< double >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(dresscrps(m, s, y));
+    rcpp_result_gen = Rcpp::wrap(dresscrps_cpp(m, s, y));
     return rcpp_result_gen;
 END_RCPP
 }

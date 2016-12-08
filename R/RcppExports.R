@@ -8,7 +8,7 @@
 #' @param y observation 
 #' @return crps
 #' @export
-dresscrps <- function(m, s, y) {
-    .Call('SpecsVerification_dresscrps', PACKAGE = 'SpecsVerification', m, s, y)
+dresscrps_cpp <- function(m, s, y) {
+    .Call('SpecsVerification_dresscrps_cpp', PACKAGE = 'SpecsVerification', m, s, y)
 }
 

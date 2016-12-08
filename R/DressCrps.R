@@ -20,9 +20,9 @@ DressCrps <- function(dressed.ens, obs) {
   crps <- sapply(
             seq_len(nrow(dressed.ens[['ens']])), 
             function(ii) {
-              dresscrps(dressed.ens[['ens']][ii,], 
-                        dressed.ens[['ker.wd']][ii,], 
-                        obs[ii])
+              dresscrps_cpp(dressed.ens[['ens']][ii,], 
+                            dressed.ens[['ker.wd']][ii,], 
+                            obs[ii])
             })
 
   return(crps)
