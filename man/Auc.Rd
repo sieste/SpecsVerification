@@ -4,7 +4,7 @@
 \alias{Auc}
 \title{Calculate area under the ROC curve (AUC) for a forecast and its verifying binary observation, and estimate the variance of the AUC}
 \usage{
-Auc(fcst, obs, handle.na = "na.fail")
+Auc(fcst, obs, handle.na = c("na.fail", "only.complete.pairs"))
 }
 \arguments{
 \item{fcst}{vector of forecasts}

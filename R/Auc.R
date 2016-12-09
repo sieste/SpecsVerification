@@ -10,13 +10,14 @@
 #' @seealso AucDiff
 #' @references DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. http://dx.doi.org/10.2307/2531595
 #' @export
-Auc <- function(fcst, obs, handle.na="na.fail") {
+Auc <- function(fcst, obs, handle.na=c("na.fail", "only.complete.pairs")) {
+
 
   ## sanity checks
   stopifnot(length(fcst) == length(obs))
 
-
   ## handle NA's
+  handle.na = match.arg(handle.na)
   if (handle.na == "na.fail") {
     if (any(is.na(c(fcst, obs)))) {
       stop("missing values")
@@ -28,14 +29,14 @@ Auc <- function(fcst, obs, handle.na="na.fail") {
     }
     fcst <- fcst[nna]
     obs <- obs[nna]
-  } else {
-    stop("unknown 'handle.na' argument")
-  }
-
+  } 
 
   ## after removing any NA's, check if observations are either 0 or 1
   stopifnot(all(obs %in% c(0,1)))
-  if (sum(obs) == length(obs) | sum(obs) == 0) {
+  n = length(obs)
+  n1 = sum(obs)
+  n0 = n - n1 
+  if (n0 == 0 | n1 == 0) {
     stop("need at least one event and one non-event")
   }
 
@@ -43,8 +44,6 @@ Auc <- function(fcst, obs, handle.na="na.fail") {
   ## calculate sets of forecasts with events (X) and forecasts with non-events (Y)
   X <- fcst[obs == 1]
   Y <- fcst[obs == 0]
-  m <- length(X)
-  n <- length(Y)  
 
 
   ## Delong's Psi function as matrix (Psi.mat[i, j] = Psi(X[i], Y[j]))
@@ -62,10 +61,10 @@ Auc <- function(fcst, obs, handle.na="na.fail") {
   V <- rowMeans(Psi)
   W <- colMeans(Psi)
 
-  v <- sum((V - theta)^2) / (m - 1)
-  w <- sum((W - theta)^2) / (n - 1)
+  v <- sum((V - theta)^2) / (n1 - 1)
+  w <- sum((W - theta)^2) / (n0 - 1)
 
-  var.auc <- v / m + w / n
+  var.auc <- v / n1 + w / n0
 
   sd.auc <- sqrt(var.auc)
 
