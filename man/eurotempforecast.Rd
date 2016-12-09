@@ -2,7 +2,14 @@
 % Please edit documentation in R/eurotempforecast.R
 \docType{data}
 \name{eurotempforecast}
+\alias{ens}
+\alias{ens.bin}
+\alias{ens.cat}
 \alias{eurotempforecast}
+\alias{obs}
+\alias{obs.bin}
+\alias{obs.cat}
+\alias{obs.lag}
 \title{Seasonal ensemble forecast of European average summer temperature}
 \format{Variables contained in the data set:
 \itemize{

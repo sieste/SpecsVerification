@@ -22,3 +22,47 @@
 #' @usage data(eurotempforecast)
 NULL
 
+# #' Ensemble temperature forecast data
+# #'
+# #' An ensemble forecast data set to test verification functions. Loaded by `data(eurotempforecast)`.
+# #' @docType data
+# #' @name ens
+# #' @seealso eurotempforecast
+# NULL
+
+# #' Temperature observation data
+# #'
+# #' Observational data set to test verification functions. Loaded by `data(eurotempforecast)`.
+# #' @docType data
+# #' @name obs 
+# #' @seealso eurotempforecast
+# NULL
+
+
+#' @name ens
+#' @rdname eurotempforecast
+NULL
+
+#' @name obs
+#' @rdname eurotempforecast
+NULL
+
+#' @name obs.lag
+#' @rdname eurotempforecast
+NULL
+
+#' @name obs.bin
+#' @rdname eurotempforecast
+NULL
+
+#' @name ens.bin
+#' @rdname eurotempforecast
+NULL
+
+#' @name obs.cat
+#' @rdname eurotempforecast
+NULL
+
+#' @name ens.cat
+#' @rdname eurotempforecast
+NULL
