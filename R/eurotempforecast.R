@@ -15,6 +15,7 @@
 #' @docType data
 #' @keywords datasets
 #' @name eurotempforecast
+#' @aliases ens obs obs.lag ens.bin obs.bin ens.cat obs.cat
 #' @references 
 #' Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bull. Amer. Meteor. Soc., 91, 1015.1057. doi:10.1175/2010BAMS3001.1 
 #' Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2. J. Clim., 27, 2185--2208, doi:10.1175/JCLI-D-12-00823.1 
@@ -22,47 +23,3 @@
 #' @usage data(eurotempforecast)
 NULL
 
-# #' Ensemble temperature forecast data
-# #'
-# #' An ensemble forecast data set to test verification functions. Loaded by `data(eurotempforecast)`.
-# #' @docType data
-# #' @name ens
-# #' @seealso eurotempforecast
-# NULL
-
-# #' Temperature observation data
-# #'
-# #' Observational data set to test verification functions. Loaded by `data(eurotempforecast)`.
-# #' @docType data
-# #' @name obs 
-# #' @seealso eurotempforecast
-# NULL
-
-
-#' @name ens
-#' @rdname eurotempforecast
-NULL
-
-#' @name obs
-#' @rdname eurotempforecast
-NULL
-
-#' @name obs.lag
-#' @rdname eurotempforecast
-NULL
-
-#' @name obs.bin
-#' @rdname eurotempforecast
-NULL
-
-#' @name ens.bin
-#' @rdname eurotempforecast
-NULL
-
-#' @name obs.cat
-#' @rdname eurotempforecast
-NULL
-
-#' @name ens.cat
-#' @rdname eurotempforecast
-NULL
