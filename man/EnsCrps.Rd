@@ -7,7 +7,7 @@
 EnsCrps(ens, obs, R.new = NA)
 }
 \arguments{
-\item{ens}{a N*R representing N time instances of real-valued R-member ensemble forecasts}
+\item{ens}{a N*R matrix representing N time instances of real-valued R-member ensemble forecasts}
 
 \item{obs}{a numeric vector of length N with real-valued observations}
 
