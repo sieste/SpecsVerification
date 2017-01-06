@@ -1,6 +1,5 @@
-.DEFAULT_GOAL := all
-
-R := R --vanilla -e '.libPaths("/home/stefan/lib/R")'
+.SUFFIXES:
+MAKEFLAGS += -r
 
 PKGFILES := $(shell find R data src man tests -type f ! -name "*.swp") DESCRIPTION NAMESPACE
 PACKAGE := $(shell awk -F": +" '/^Package/ { print $$2 }' DESCRIPTION)
@@ -12,21 +11,20 @@ build: $(R_PKG_tgz)
 install: libtmp/$(PACKAGE)
 
 $(R_PKG_tgz): $(PKGFILES)
-	$(R) -e 'Rcpp::compileAttributes()' && \
-	$(R) -e 'roxygen2::roxygenize(package.dir=".", clean=TRUE)' && \
+	R -e 'Rcpp::compileAttributes()';\
+	R -e 'roxygen2::roxygenize(package.dir=".", clean=TRUE)';\
 	R CMD build .
 
-libtmp/$(PACKAGE): $(R_PKG_tgz)
+libtmp/$(PACKAGE): 
 	mkdir -p libtmp;\
 	R CMD INSTALL $(R_PKG_tgz) -l libtmp
 
-check: $(R_PKG_tgz)
+check: 
 	R_LIBS=/home/stefan/lib/R R CMD check $(R_PKG_tgz)
 
 test: 
-	$(R) -e 'devtools::test()'
+	R -e 'devtools::test()'
 
-.PHONY: clean
 clean:
 	rm $(R_PKG_tgz);\
 	rm -rf libtmp/$(PACKAGE)
