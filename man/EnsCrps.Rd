@@ -11,7 +11,7 @@ EnsCrps(ens, obs, R.new = NA)
 
 \item{obs}{a numeric vector of length N with real-valued observations}
 
-\item{R.new}{ensemble size for which the scores should be adjusted}
+\item{R.new}{positive number, can be `Inf`, ensemble size for which the scores should be adjusted, default is NA for no adjustment}
 }
 \value{
 numeric vector of length N with the ensemble-adjusted CRPS values
