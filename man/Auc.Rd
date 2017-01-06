@@ -4,7 +4,8 @@
 \alias{Auc}
 \title{Calculate area under the ROC curve (AUC) for a forecast and its verifying binary observation, and estimate the variance of the AUC}
 \usage{
-Auc(fcst, obs, handle.na = c("na.fail", "only.complete.pairs"))
+Auc(fcst, obs, handle.na = c("na.fail", "only.complete.pairs"),
+  use_fn = c("C++", "R"))
 }
 \arguments{
 \item{fcst}{vector of forecasts}
@@ -12,9 +13,11 @@ Auc(fcst, obs, handle.na = c("na.fail", "only.complete.pairs"))
 \item{obs}{vector of binary observations (0 for non-occurrence, 1 for occurrence of the event)}
 
 \item{handle.na}{how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.pairs'; default: 'na.fail'}
+
+\item{use_fn}{the function used for the calculation: 'C++' (default) for the fast C++ implementation, or 'R' for the slow (but more readable) R implementation}
 }
 \value{
-vector containing AUC and its estimated standard deviation
+vector containing AUC and its estimated sampling standard deviation
 }
 \description{
 Calculate area under the ROC curve (AUC) for a forecast and its verifying binary observation, and estimate the variance of the AUC
