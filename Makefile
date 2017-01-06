@@ -6,6 +6,9 @@ PACKAGE := $(shell awk -F": +" '/^Package/ { print $$2 }' DESCRIPTION)
 VERSION := $(shell awk -F": +" '/^Version/ { print $$2 }' DESCRIPTION)
 R_PKG_tgz := $(PACKAGE)_$(VERSION).tar.gz
 
+
+.PHONY: all build install test clean
+
 all: build install
 build: $(R_PKG_tgz)
 install: libtmp/$(PACKAGE)
@@ -15,7 +18,7 @@ $(R_PKG_tgz): $(PKGFILES)
 	R -e 'roxygen2::roxygenize(package.dir=".", clean=TRUE)';\
 	R CMD build .
 
-libtmp/$(PACKAGE): 
+libtmp/$(PACKAGE): $(R_PKG_tgz)
 	mkdir -p libtmp;\
 	R CMD INSTALL $(R_PKG_tgz) -l libtmp
 

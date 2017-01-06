@@ -44,18 +44,18 @@ Auc = function(fcst, obs, handle.na=c("na.fail", "only.complete.pairs"), use_fn=
   }
 
   
-  # decide whether to use the fast C function or the slow but more readable R function
+  ## decide whether to use the fast C function or the slow but more readable R function
+
   use_fn = match.arg(use_fn)
+
   if (use_fn == 'C++') {
 
-
     ans = auc_cpp(fcst, obs)
-    auc = ans[1]
-    auc_sd = ans[2]
+
+  } 
 
 
-  } else {
-  
+  if (use_fn == 'R') {
 
     ## calculate sets of forecasts with events (X) and forecasts with non-events (Y)
     X = fcst[obs == 1]
@@ -80,12 +80,14 @@ Auc = function(fcst, obs, handle.na=c("na.fail", "only.complete.pairs"), use_fn=
     w = var(W)
     auc_sd = sqrt(v / n1 + w / n0)
   
+    ans = c(auc, auc_sd)
 
   }
 
 
   ## return
-  ret = c(auc = auc, auc_sd = auc_sd)
+  names(ans) = c('auc', 'auc_sd')
   return(ret)
+
 }
 

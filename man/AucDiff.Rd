@@ -4,7 +4,8 @@
 \alias{AucDiff}
 \title{Calculate difference between areas under the ROC curve (AUC) between a forecast and a reference forecast for the same observation, and estimate the variance of the AUC difference}
 \usage{
-AucDiff(fcst, fcst.ref, obs, handle.na = "na.fail")
+AucDiff(fcst, fcst.ref, obs, handle.na = c("na.fail",
+  "only.complete.triplets"), use_fn = c("C++", "R"))
 }
 \arguments{
 \item{fcst}{vector of forecasts}
@@ -14,6 +15,8 @@ AucDiff(fcst, fcst.ref, obs, handle.na = "na.fail")
 \item{obs}{vector of binary observations (0 for non-occurrence, 1 for occurrence of the event)}
 
 \item{handle.na}{how should missing values in forecasts and observations be handled; possible values are 'na.fail' and 'only.complete.triplets'; default: 'na.fail'}
+
+\item{use_fn}{the function used for the calculation: 'C++' (default) for the fast C++ implementation, or 'R' for the slow (but more readable) R implementation}
 }
 \value{
 vector with AUC difference, and estimated standard deviation
