@@ -1,5 +1,4 @@
 #include <RcppArmadillo.h>
-using namespace Rcpp;
 
 // [[Rcpp::depends(RcppArmadillo)]]
 
@@ -12,13 +11,13 @@ using namespace Rcpp;
 //' @seealso Auc AucDiff
 //' @export
 // [[Rcpp::export]]
-NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVector obs) {
+std::vector<double> aucdiff_cpp(std::vector<double> fcst, std::vector<double> fcst_ref, std::vector<bool> obs) {
 
   int L = obs.size();
 
   // calculate order vectors of fcst and fcst_ref
-  arma::uvec i_ord = arma::sort_index(Rcpp::as<arma::vec>(fcst), "ascend");
-  arma::uvec i_ord_ref = arma::sort_index(Rcpp::as<arma::vec>(fcst_ref), "ascend");
+  arma::uvec i_ord = arma::sort_index(arma::vec(fcst), "ascend");
+  arma::uvec i_ord_ref = arma::sort_index(arma::vec(fcst_ref), "ascend");
 
   int n,m,nn,mm,i,j,jp1,k;
   double sumV, sumV2, sumW, sumW2, auc, v, w, sd_auc,
@@ -41,7 +40,7 @@ NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVec
     W_inds.clear();
     while (1) {
       j = i_ord[i];
-      if (obs[j]) {
+      if (obs.at(j)) {
         mm++;
         V_inds.push_back(j);
       } else {
@@ -52,16 +51,16 @@ NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVec
         break;
       } 
       jp1 = i_ord[i+1];
-      if (fcst[j] != fcst[jp1]) {
+      if (fcst.at(j) != fcst.at(jp1)) {
         break;
       } 
       i++;
     }
     for (k = 0; k < mm; k++) {
-      VW[V_inds[k]] = n + nn/2.0;
+      VW.at(V_inds.at(k)) = n + nn/2.0;
     }
     for (k = 0; k < nn; k++) {
-      VW[W_inds[k]] = m + mm/2.0;
+      VW.at(W_inds.at(k)) = m + mm/2.0;
     }
     n += nn;
     m += mm;
@@ -79,7 +78,7 @@ NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVec
     W_inds.clear();
     while (1) {
       j = i_ord_ref[i];
-      if (obs[j]) {
+      if (obs.at(j)) {
         mm++;
         V_inds.push_back(j);
       } else {
@@ -90,16 +89,16 @@ NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVec
         break;
       } 
       jp1 = i_ord_ref[i+1];
-      if (fcst_ref[j] != fcst_ref[jp1]) {
+      if (fcst_ref.at(j) != fcst_ref.at(jp1)) {
         break;
       } 
       i++;
     }
     for (k = 0; k < mm; k++) {
-      VW_ref[V_inds[k]] = n + nn/2.0;
+      VW_ref.at(V_inds.at(k)) = n + nn/2.0;
     }
     for (k = 0; k < nn; k++) {
-      VW_ref[W_inds[k]] = m + mm/2.0;
+      VW_ref.at(W_inds.at(k)) = m + mm/2.0;
     }
     n += nn;
     m += mm;
@@ -109,73 +108,62 @@ NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVec
     }
   }
 
-  // calculate v = var(V/n), v_ref = var(V_ref/n), v12 = cov(V/n, V_ref/n)
-  //           w = var(W/m), w_ref = var(W_ref/m), w12 = cov(W/m, W_ref/m)
-  // using Welfords method for numerical stability
-  double MV, MV_ref, MW, MW_ref = 0.0;
-  double SV, SV_ref, SW, SW_ref = 0.0;
-  double CV, CW = 0.0;
-  double delta, delta2, delta_ref, delta2_ref, V_, Vref_, W_, Wref_;
-  int nV, nW = 0;
+
+  // calculate sums, sums-of-squares, and product sums to calculate variances
+  // and covariances of V and W
+  sumV = 0.0;
+  sumV2 = 0.0;
+  sumW = 0.0;
+  sumW2 = 0.0;
+  sumV_ref = 0.0;
+  sumV2_ref = 0.0;
+  sumW_ref = 0.0;
+  sumW2_ref = 0.0;
+  sumV_V_ref = 0.0;
+  sumW_W_ref = 0.0;
+
   for (i = 0; i < L; i++) {
-    if (obs[i]) {
-
-      nV++;
-
-      V_ = VW[i] / n;
-      delta = V_ - MV;
-      MV += delta / nV;
-      delta2 = V_ - MV;
-      SV += delta * delta2;
-
-      Vref_ = VW_ref[i] / n;
-      delta_ref = Vref_ - MV_ref;
-      MV_ref += delta_ref / nV;
-      delta2_ref = Vref_ - MV_ref;
-      SV_ref += delta_ref * delta2_ref;
-
-      CV += (nV-1) * delta / nV * delta_ref / nV - CV / nV;
-
+    if (obs.at(i)) {
+      double V_ = VW.at(i) / n;
+      double Vref_ = VW_ref.at(i) / n;
+      sumV += V_;
+      sumV2 += V_*V_;
+      sumV_ref += Vref_;
+      sumV2_ref += Vref_*Vref_;
+      sumV_V_ref += V_ * Vref_;
     } else {
-
-      nW++;
-
-      W_ = VW[i] / m;
-      delta = W_ - MW;
-      MW += delta / nW;
-      delta2 = W_ - MW;
-      SW += delta * delta2;
-
-      Wref_ = VW_ref[i] / m;
-      delta_ref = Wref_ - MW_ref;
-      MW_ref += delta_ref / nW;
-      delta2_ref = Wref_ - MW_ref;
-      SW_ref += delta_ref * delta2_ref;
-
-      CW += (nW-1) * delta / nW * delta_ref / nW - CW / nW;
-
+      double W_ = VW.at(i) / m;
+      double Wref_ = VW_ref.at(i) / m;
+      sumW += W_;
+      sumW2 += W_*W_;
+      sumW_ref += Wref_;
+      sumW2_ref += Wref_*Wref_;
+      sumW_W_ref += W_ * Wref_;
     }
   }
 
-  auc = MV;
-  auc_ref = MV_ref;
-
-  v = SV / (m-1);
-  v_ref = SV_ref / (m-1);
-  v12 = CV * m / (m-1);
-
-  w = SW / (n-1);
-  w_ref = SW_ref / (n-1);
-  w12 = CW * n / (n-1);
-
+  // calculate quantities defined in Delong et al (1988)
+  auc = sumV / m;
+  auc_ref = sumV_ref /  m;
+  v = (sumV2 - sumV * sumV / m) / (m-1);
+  v_ref = (sumV2_ref - sumV_ref * sumV_ref / m) / (m-1);
+  w = (sumW2 - sumW * sumW / n) / (n-1);
+  w_ref = (sumW2_ref - sumW_ref * sumW_ref / n) / (n-1);
+  v12 = (sumV_V_ref - sumV * sumV_ref / m) / (m-1);
+  w12 = (sumW_W_ref - sumW * sumW_ref / n) / (n-1);
+  
+  
+  // calculate AUC variances and covariances
   sd_auc = sqrt(v / m + w / n);
   sd_auc_ref = sqrt(v_ref / m + w_ref / n);
-  
   auc_diff = auc - auc_ref;
   sd_auc_diff = sqrt((v + v_ref - 2 * v12) / m + (w + w_ref - 2 * w12) / n);
 
-  return NumericVector::create(auc, sd_auc, auc_ref, sd_auc_ref, auc_diff, sd_auc_diff);
 
+  // return
+  double tmp[] = {auc, sd_auc, auc_ref, sd_auc_ref, auc_diff, sd_auc_diff};
+  std::vector<double> ret(tmp, tmp + 6);
+  return ret;
 }
 
 
