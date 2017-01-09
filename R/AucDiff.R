@@ -55,7 +55,7 @@ AucDiff <- function(fcst, fcst.ref, obs, handle.na=c('na.fail', 'only.complete.t
 
   if (use_fn == 'C++') {
 
-    ans = auc_cpp(fcst, fcst.ref, obs)
+    ans = aucdiff_cpp(fcst, fcst.ref, obs)
 
   }
 
