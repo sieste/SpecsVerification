@@ -19,14 +19,14 @@ BEGIN_RCPP
 END_RCPP
 }
 // aucdiff_cpp
-NumericVector aucdiff_cpp(NumericVector fcst, NumericVector fcst_ref, NumericVector obs);
+std::vector<double> aucdiff_cpp(std::vector<double> fcst, std::vector<double> fcst_ref, std::vector<bool> obs);
 RcppExport SEXP SpecsVerification_aucdiff_cpp(SEXP fcstSEXP, SEXP fcst_refSEXP, SEXP obsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type fcst(fcstSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type fcst_ref(fcst_refSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type obs(obsSEXP);
+    Rcpp::traits::input_parameter< std::vector<double> >::type fcst(fcstSEXP);
+    Rcpp::traits::input_parameter< std::vector<double> >::type fcst_ref(fcst_refSEXP);
+    Rcpp::traits::input_parameter< std::vector<bool> >::type obs(obsSEXP);
     rcpp_result_gen = Rcpp::wrap(aucdiff_cpp(fcst, fcst_ref, obs));
     return rcpp_result_gen;
 END_RCPP

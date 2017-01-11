@@ -88,7 +88,7 @@ Auc = function(fcst, obs, handle.na=c("na.fail", "only.complete.pairs"), use_fn=
 
   ## return
   names(ans) = c('auc', 'auc_sd')
-  return(ret)
+  return(ans)
 
 }
 
