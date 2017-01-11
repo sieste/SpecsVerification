@@ -34,7 +34,7 @@ std::vector<double> aucdiff_cpp(std::vector<double> fcst, std::vector<double> fc
 
   // calculate V and W for AUC(fcst, obs)
   n = m = i = 0;
-  while (1) {
+  while (i < L) {
     nn = mm = 0;
     V_inds.clear();
     W_inds.clear();
@@ -65,9 +65,6 @@ std::vector<double> aucdiff_cpp(std::vector<double> fcst, std::vector<double> fc
     n += nn;
     m += mm;
     i++;
-    if (i >= L) {
-      break;
-    }
   }
 
   // calculate V_ref and W_ref for AUC(fcst_ref, obs)
