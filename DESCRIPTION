@@ -1,11 +1,11 @@
 Package: SpecsVerification
-Version: 1.0-0
-Date: 2016-12-07
-Title: Forecast Verification Routines for the SPECS FP7 Project
+Version: 0.5-0
+Date: 2017-01-18
+Title: Verification Routines for Ensemble Forecasts of Weather and Climate
 Authors@R: c(person("Stefan", "Siegert", role = c("aut", "cre"),
                      email = "s.siegert@exeter.ac.uk"))
 Maintainer: Stefan Siegert <s.siegert@exeter.ac.uk>
-Description: A collection of new forecast verification routines for the SPECS
+Description: A collection of new forecast verification routines developed for the SPECS
     FP7 project. The emphasis is on comparative verification of ensemble forecasts.
 License: GPL (>= 2)
 Imports: Rcpp
