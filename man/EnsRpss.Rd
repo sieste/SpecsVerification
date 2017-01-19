@@ -4,7 +4,7 @@
 \alias{EnsRpss}
 \title{Calculate EnsRps Skill Score (deprecated, use function SkillScore instead)}
 \usage{
-EnsRpss(ens, ens.ref, obs)
+EnsRpss(ens, ens.ref, obs, format = c("category", "members"))
 }
 \arguments{
 \item{ens}{the ensemble}
@@ -12,6 +12,8 @@ EnsRpss(ens, ens.ref, obs)
 \item{ens.ref}{the reference ensemble}
 
 \item{obs}{the observation}
+
+\item{format}{see `EnsRps`}
 }
 \value{
 EnsRps skill score

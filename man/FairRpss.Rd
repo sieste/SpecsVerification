@@ -4,7 +4,7 @@
 \alias{FairRpss}
 \title{Calculate FairRps Skill Score (deprecated, use function SkillScore instead)}
 \usage{
-FairRpss(ens, ens.ref, obs)
+FairRpss(ens, ens.ref, obs, format = c("category", "members"))
 }
 \arguments{
 \item{ens}{the ensemble}
@@ -12,6 +12,8 @@ FairRpss(ens, ens.ref, obs)
 \item{ens.ref}{the reference ensemble}
 
 \item{obs}{the observation}
+
+\item{format}{see `EnsRps`}
 }
 \value{
 FairRps skill score

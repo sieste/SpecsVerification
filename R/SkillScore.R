@@ -147,12 +147,15 @@ EnsCrpss <- function(ens, ens.ref, obs) {
 #' @param ens the ensemble 
 #' @param ens.ref the reference ensemble
 #' @param obs the observation
+#' @param format see `EnsRps`
 #' @return EnsRps skill score
 #' @seealso SkillScore EnsRps
 #' @export
 
-EnsRpss <- function(ens, ens.ref, obs) {
-  SkillScore(EnsRps(ens, obs), EnsRps(ens.ref, obs), handle.na="use.pairwise.complete")
+EnsRpss <- function(ens, ens.ref, obs, format=c('category', 'members')) {
+  SkillScore(EnsRps(ens=ens, obs=obs, format=format), 
+             EnsRps(ens=ens.ref, obs=obs, format=format), 
+             handle.na="use.pairwise.complete")
 }
 
 
@@ -201,13 +204,15 @@ FairCrpss <- function(ens, ens.ref, obs) {
 #' @param ens the ensemble 
 #' @param ens.ref the reference ensemble
 #' @param obs the observation
+#' @param format see `EnsRps`
 #' @return FairRps skill score
 #' @seealso SkillScore EnsRps
 #' @export
 
-FairRpss <- function(ens, ens.ref, obs) {
-  SkillScore(EnsRps(ens, obs, R.new=Inf), EnsRps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
-
+FairRpss <- function(ens, ens.ref, obs, format=c('category', 'members')) {
+  SkillScore(EnsRps(ens, obs, R.new=Inf, format=format), 
+             EnsRps(ens.ref, obs, R.new=Inf, format=format), 
+             handle.na="use.pairwise.complete")
 }
 
 

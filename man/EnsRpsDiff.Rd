@@ -4,7 +4,7 @@
 \alias{EnsRpsDiff}
 \title{Calculate EnsRps Difference (deprecated, use function ScoreDiff instead)}
 \usage{
-EnsRpsDiff(ens, ens.ref, obs, probs = NA)
+EnsRpsDiff(ens, ens.ref, obs, probs = NA, format = c("category", "members"))
 }
 \arguments{
 \item{ens}{the ensemble}
@@ -14,6 +14,8 @@ EnsRpsDiff(ens, ens.ref, obs, probs = NA)
 \item{obs}{the observation}
 
 \item{probs}{not used}
+
+\item{format}{see `EnsRps`}
 }
 \value{
 mean EnsRps difference

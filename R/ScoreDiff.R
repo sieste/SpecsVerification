@@ -170,12 +170,15 @@ EnsCrpsDiff <- function(ens, ens.ref, obs, probs=NA) {
 #' @param ens.ref the reference ensemble
 #' @param obs the observation
 #' @param probs not used
+#' @param format see `EnsRps`
 #' @return mean EnsRps difference
 #' @seealso ScoreDiff EnsRps
 #' @export
 
-EnsRpsDiff <- function(ens, ens.ref, obs, probs=NA) {
-  ScoreDiff(EnsRps(ens, obs), EnsRps(ens.ref, obs), handle.na="use.pairwise.complete")
+EnsRpsDiff <- function(ens, ens.ref, obs, probs=NA, format=c("category", "members")) {
+  ScoreDiff(EnsRps(ens=ens, obs=obs, R.new=NA, format=format), 
+            EnsRps(ens=ens.ref, obs=obs, R.new=NA, format=format), 
+            handle.na="use.pairwise.complete")
 }
 
 
@@ -227,13 +230,15 @@ FairCrpsDiff <- function(ens, ens.ref, obs, probs=NA) {
 #' @param ens.ref the reference ensemble
 #' @param obs the observation
 #' @param probs not used
+#' @param format see `EnsRps`
 #' @return mean FairRps difference
 #' @seealso ScoreDiff EnsRps
 #' @export
 
-FairRpsDiff <- function(ens, ens.ref, obs, probs=NA) {
-  ScoreDiff(EnsRps(ens, obs, R.new=Inf), EnsRps(ens.ref, obs, R.new=Inf), handle.na="use.pairwise.complete")
-
+FairRpsDiff <- function(ens, ens.ref, obs, probs=NA, format=c("category", "members")) {
+  ScoreDiff(EnsRps(ens=ens, obs=obs, R.new=Inf, format=format), 
+            EnsRps(ens=ens.ref, obs=obs, R.new=Inf, format=format), 
+            handle.na="use.pairwise.complete")
 }
 
 
