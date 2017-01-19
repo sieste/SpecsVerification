@@ -2,9 +2,12 @@
 % Please edit documentation in R/EnsRps.R
 \name{EnsRps}
 \alias{EnsRps}
+\alias{FairRps}
 \title{Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts}
 \usage{
 EnsRps(ens, obs, R.new = NA, format = c("category", "members"))
+
+FairRps(ens, obs, format = c("category", "members"))
 }
 \arguments{
 \item{ens}{matrix with N rows representing N time instances of categorical ensemble forecasts as follows: If `format = category` (the default), then ens[t,r] indicates the category that the r-th ensemble member predicts for time t. If `format = members`, then ens[t,k] is the number of ensemble members that predict category k at time t.}
@@ -20,6 +23,9 @@ numeric vector of length N with the ensemble-adjusted RPS values
 }
 \description{
 Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical forecasts
+}
+\details{
+`FairRps(ens, obs)` returns `EnsRps(ens, obs, R.new=Inf)`
 }
 \examples{
 data(eurotempforecast)

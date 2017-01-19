@@ -2,9 +2,12 @@
 % Please edit documentation in R/EnsQs.R
 \name{EnsQs}
 \alias{EnsQs}
+\alias{FairQs}
 \title{Calculate the ensemble-adjusted Quadratic Score (QS) for categorical forecasts}
 \usage{
 EnsQs(ens, obs, R.new = NA)
+
+FairQs(ens, obs)
 }
 \arguments{
 \item{ens}{a N*R matrix of integers, representing N time instances of categorical ensemble forecasts; ens[t,r] indicates the category index that the r-th ensemble member forecasts at time t}
@@ -20,6 +23,8 @@ numeric vector of length N with the ensemble-adjusted quadratic score values
 Calculate the ensemble-adjusted Quadratic Score (QS) for categorical forecasts
 }
 \details{
+`FairQs(ens, obs)` returns `EnsQs(ens, obs, R.new=Inf)`
+
 It is assumed that the smallest class index is 1, and the largest class index is calculated by max(c(ens,obs))
 }
 \examples{

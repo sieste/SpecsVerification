@@ -1,9 +1,11 @@
 #' Calculate the ensemble-adjusted Continuous Ranked Probability Score (CRPS)
 #'
+#' @rdname EnsCrps
 #' @param ens a N*R matrix representing N time instances of real-valued R-member ensemble forecasts
 #' @param obs a numeric vector of length N with real-valued observations
 #' @param R.new positive number, can be `Inf`, ensemble size for which the scores should be adjusted, default is NA for no adjustment
 #' @return numeric vector of length N with the ensemble-adjusted CRPS values
+#' @details `FairCrps(ens, obs)` returns `EnsCrps(ens, obs, R.new=Inf)`
 #' @examples
 #' data(eurotempforecast)
 #' mean(EnsCrps(ens, obs, R.new=Inf))
@@ -23,3 +25,9 @@ EnsCrps = function(ens, obs, R.new=NA) {
 
 }
 
+
+#' @rdname EnsCrps
+#' @export
+FairCrps = function(ens, obs) {
+  return(EnsCrps(ens, obs, R.new=Inf))
+}

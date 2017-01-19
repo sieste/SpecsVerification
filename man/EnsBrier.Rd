@@ -2,9 +2,12 @@
 % Please edit documentation in R/EnsBrier.R
 \name{EnsBrier}
 \alias{EnsBrier}
+\alias{FairBrier}
 \title{Calculate the ensemble-adjusted Brier Score}
 \usage{
 EnsBrier(ens, obs, R.new = NA)
+
+FairBrier(ens, obs)
 }
 \arguments{
 \item{ens}{a N*R matrix representing N time instances of R-member ensemble forecasts of binary events; ens[t,r]=1 if the r-th ensemble member at time t predicted the event, otherwise ens[t,r]=0}
@@ -18,6 +21,9 @@ numeric vector of length N with the ensemble-adjusted Brier scores
 }
 \description{
 Calculate the ensemble-adjusted Brier Score
+}
+\details{
+`FairBrier(ens, obs)` returns `EnsBrier(ens, obs, R.new=Inf)`
 }
 \examples{
 data(eurotempforecast)

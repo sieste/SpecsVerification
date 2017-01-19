@@ -1,9 +1,11 @@
 #' Calculate the ensemble-adjusted Quadratic Score (QS) for categorical forecasts
 #'
+#' @rdname EnsQs
 #' @param ens a N*R matrix of integers, representing N time instances of categorical ensemble forecasts; ens[t,r] indicates the category index that the r-th ensemble member forecasts at time t
 #' @param obs a vector of length N, obs[t] is the category that occurred at time t
 #' @param R.new ensemble size for which the scores should be adjusted
 #' @return numeric vector of length N with the ensemble-adjusted quadratic score values
+#' @details `FairQs(ens, obs)` returns `EnsQs(ens, obs, R.new=Inf)`
 #' @examples
 #' data(eurotempforecast)
 #' EnsQs(ens.cat, obs.cat, R.new=Inf)
@@ -46,4 +48,8 @@ EnsQs <- function(ens, obs, R.new=NA) {
   return(q.score)
 }
 
-
+#' @rdname EnsQs
+#' @export
+FairQs = function(ens, obs) {
+  return(EnsQs(ens, obs, R.new=Inf))
+}

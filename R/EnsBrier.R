@@ -1,9 +1,11 @@
 #' Calculate the ensemble-adjusted Brier Score 
 #'
+#' @rdname EnsBrier
 #' @param ens a N*R matrix representing N time instances of R-member ensemble forecasts of binary events; ens[t,r]=1 if the r-th ensemble member at time t predicted the event, otherwise ens[t,r]=0 
 #' @param obs a numeric vector of length N with binary observations; obs[t]=1 if the event happens at time t, otherwise obs[t]=0 
 #' @param R.new ensemble size for which the scores should be adjusted
 #' @return numeric vector of length N with the ensemble-adjusted Brier scores 
+#' @details `FairBrier(ens, obs)` returns `EnsBrier(ens, obs, R.new=Inf)`
 #' @examples
 #' data(eurotempforecast)
 #' mean(EnsBrier(ens.bin, obs.bin, R.new=Inf))
@@ -12,6 +14,10 @@
 #' @export
 
 EnsBrier <- function(ens, obs, R.new=NA) {
+
+  stopifnot(is.matrix(ens), 
+            nrow(ens) == length(obs), 
+            length(R.new)==1)
 
   # count number of ensemble members that predict the event
   i <- rowSums(ens==1)
@@ -31,5 +37,13 @@ EnsBrier <- function(ens, obs, R.new=NA) {
   # return the vector of brier scores
   return(br)
 
+}
+
+
+
+#' @rdname EnsBrier
+#' @export
+FairBrier <- function(ens, obs) {
+  return(EnsBrier(ens, obs, R.new=Inf))
 }
 

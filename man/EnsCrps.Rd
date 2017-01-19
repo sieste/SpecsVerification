@@ -2,9 +2,12 @@
 % Please edit documentation in R/EnsCrps.R
 \name{EnsCrps}
 \alias{EnsCrps}
+\alias{FairCrps}
 \title{Calculate the ensemble-adjusted Continuous Ranked Probability Score (CRPS)}
 \usage{
 EnsCrps(ens, obs, R.new = NA)
+
+FairCrps(ens, obs)
 }
 \arguments{
 \item{ens}{a N*R matrix representing N time instances of real-valued R-member ensemble forecasts}
@@ -18,6 +21,9 @@ numeric vector of length N with the ensemble-adjusted CRPS values
 }
 \description{
 Calculate the ensemble-adjusted Continuous Ranked Probability Score (CRPS)
+}
+\details{
+`FairCrps(ens, obs)` returns `EnsCrps(ens, obs, R.new=Inf)`
 }
 \examples{
 data(eurotempforecast)
