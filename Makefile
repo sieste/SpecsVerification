@@ -25,6 +25,9 @@ libtmp/$(PACKAGE): $(R_PKG_tgz)
 check: 
 	R_LIBS=/home/stefan/lib/R R CMD check $(R_PKG_tgz)
 
+check-cran: 
+	R_LIBS=/home/stefan/lib/R R-devel CMD check $(R_PKG_tgz) --as-cran
+
 test: 
 	R -e 'devtools::test()'
 
