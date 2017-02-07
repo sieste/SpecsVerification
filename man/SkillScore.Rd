@@ -2,10 +2,10 @@
 % Please edit documentation in R/SkillScore.R
 \name{SkillScore}
 \alias{SkillScore}
-\title{Calculate a skill score and assess uncertainty}
+\title{Calculate a skill score and assess uncertainty.}
 \usage{
 SkillScore(scores, scores.ref, N.eff = NA, score.perf = 0,
-  handle.na = "na.fail")
+  handle.na = c("na.fail", "use.pairwise.complete"))
 }
 \arguments{
 \item{scores}{vector of verification scores}
@@ -22,7 +22,7 @@ SkillScore(scores, scores.ref, N.eff = NA, score.perf = 0,
 vector with skill score and its estimated standard deviation
 }
 \description{
-Calculate a skill score and assess uncertainty
+A skill score is defined as (mean score - mean reference score) / (perfect score - mean reference score). The skill score is zero if the mean score of the forecast equals the mean score of the reference forecast, and equals one if the mean score of the forecast equals the best possible score. Uncertainty is assessed by estimating the standard deviation of the skill score by Gaussian propagation of uncertainty.
 }
 \examples{
 data(eurotempforecast)

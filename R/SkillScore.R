@@ -1,4 +1,6 @@
-#' Calculate a skill score and assess uncertainty
+#' Calculate a skill score and assess uncertainty. 
+#'
+#' A skill score is defined as (mean score - mean reference score) / (perfect score - mean reference score). The skill score is zero if the mean score of the forecast equals the mean score of the reference forecast, and equals one if the mean score of the forecast equals the best possible score. Uncertainty is assessed by estimating the standard deviation of the skill score by propagation of uncertainty.
 #'
 #' @param scores vector of verification scores
 #' @param scores.ref vector of verification scores of the reference forecast, must be of the same length as `scores`
