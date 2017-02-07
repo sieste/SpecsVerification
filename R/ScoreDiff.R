@@ -1,5 +1,7 @@
 #' Calculate average score difference and assess uncertainty
 #'
+#' Calculate the difference (mean score of the reference forecast) minus (mean score of the forecast). Uncertainty is assessed by the Diebold-Mariano test for equality of predictive accuracy.
+#'
 #' @param scores vector of verification scores
 #' @param scores.ref vector of verification scores of the reference forecast, must be of the same length as `scores`
 #' @param N.eff user-defined effective sample size to be used in hypothesis test and for confidence bounds; if NA, the length of `scores` is used; default: NA

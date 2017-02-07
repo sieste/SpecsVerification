@@ -22,7 +22,7 @@ ScoreDiff(scores, scores.ref, N.eff = NA, conf.level = 0.95,
 vector with mean score difference, estimated standard error of the mean, one-sided p-value of the Diebold-Mariano test, and the user-specified confidence interval
 }
 \description{
-Calculate average score difference and assess uncertainty
+Calculate the difference (mean score of the reference forecast) minus (mean score of the forecast). Uncertainty is assessed by the Diebold-Mariano test for equality of predictive accuracy.
 }
 \examples{
 data(eurotempforecast)
