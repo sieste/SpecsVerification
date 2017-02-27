@@ -6,7 +6,7 @@
 #' @param nboot number of bootstrap resamples to calculate the consistency bars, default: 500
 #' @param plot logical, whether to plot the reliability diagram, default: FALSE
 #' @param plot.refin Whether to add the frequency distribution of the forecasts to the reliability diagram. default: TRUE
-#' @param cons.probs The width of the consitency intervals. default: 0.95
+#' @param cons.probs The width of the consitency intervals. default: 0.95. Set to NA for no consistency bars.
 #' @param attributes locical, whether attributes lines are included in the diagram. default: FALSE
 #' @param handle.na how should missing values be handled; possible values are 'na.fail' and 'use.pairwise.complete'; default: 'na.fail'
 #' @return a data.frame with nrows equal to the number of bins (given by the `bins` argument), with columns: average forecast probability per bin, conditional event frequency per bin, lower and upper limit of the consistency bar per bin, number of forecast probabilities per bin, lower and upper bin limit
@@ -25,40 +25,37 @@ ReliabilityDiagram <-
 function(probs, obs, bins=10, nboot=500, 
          plot=FALSE, plot.refin=TRUE, 
          cons.probs=0.95, attributes=FALSE, 
-         handle.na="na.fail")
+         handle.na=c("na.fail", "use.pairwise.complete"))
 {
 
+  handle.na = match.arg(handle.na)
+  if (handle.na == "na.fail") {
+    if (any(is.na(c(probs, obs)))) {
+      stop("Missing values in probs and/or obs. Try setting handle.na=\"use.pairwise.complete\"")
+    }
+  }
 
   # sanity checks
   stopifnot(length(probs) == length(obs))
   stopifnot(nboot >= 0)
   stopifnot(is.logical(plot), is.logical(plot.refin))
-  stopifnot(all(probs >= 0), all(probs <= 1), all(obs %in% c(0,1)))
-  stopifnot(all(cons.probs >= 0), all(cons.probs <= 1))
-
+  stopifnot(all(obs %in% c(0,1,NA)))
 
   # for backward compatibility
   if (length(cons.probs) > 1) {
     cons.probs <- max(cons.probs) - min(cons.probs)
   }
 
-
-  # handle NA's
-  if (handle.na == "na.fail") {
-    if (any(is.na(c(probs, obs)))) {
-      stop("missing values")
-    }
-  } else if (handle.na == "use.pairwise.complete") {
+  # filter complete forecast-observation pairs
+  if (handle.na == "use.pairwise.complete") {
     nna <- !is.na(probs) & !is.na(obs)
     if (all(nna == FALSE)) {
       stop("there are no complete forecast-observation pairs")
     }
     probs <- probs[nna]
     obs <- obs[nna]
-  } else {
-    stop("unknown 'handle.na' argument")
   }
-
+  stopifnot(all(probs >= 0), all(probs <= 1))
 
   # some definitions and corrections
   n <- length(obs)
@@ -98,7 +95,7 @@ function(probs, obs, bins=10, nboot=500,
   #############################################
   # consistency resampling (broecker and smith 2007)
   #############################################
-  if (nboot) {
+  if (nboot & !is.na(cons.probs)) {
     resamp.mat <- matrix(nrow=0, ncol=nbins)
     # the resampling function
     sample.rel.diag <- function() {
