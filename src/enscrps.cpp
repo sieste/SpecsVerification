@@ -33,15 +33,17 @@ NumericVector enscrps_cpp(NumericMatrix ens, NumericVector obs, double R_new) {
     double the_obs = obs(i);
 
     NumericVector the_ens = ens(i,_);
-    the_ens = the_ens.sort(); // NAs are last in order
+    the_ens.sort(); // NAs are last in order
 
     sad_obs(i) = 0;
     double sum_xj = 0;
     double sum_jxj = 0;
 
     int j = 0;
-    while (!R_IsNA(the_ens[j]) & j < R_max) {
-
+    while (j < R_max) {
+      if (R_IsNA(the_ens[j])) { 
+        break;
+      } 
       sad_obs(i) += fabs(the_ens(j) - the_obs);
       sum_xj     += the_ens(j);
       sum_jxj    += (j+1) * the_ens(j);
