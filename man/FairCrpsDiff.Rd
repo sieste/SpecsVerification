@@ -24,4 +24,3 @@ Calculate FairCrps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff EnsCrps
 }
-

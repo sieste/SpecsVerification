@@ -22,4 +22,3 @@ Calculate FairCrps Skill Score (deprecated, use function SkillScore instead)
 \seealso{
 SkillScore EnsCrps
 }
-

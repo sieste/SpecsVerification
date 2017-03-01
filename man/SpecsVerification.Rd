@@ -11,4 +11,3 @@ SpecsVerification - Forecast verification routines
 \author{
 : Stefan Siegert
 }
-

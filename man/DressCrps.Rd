@@ -28,4 +28,3 @@ Grimit et al (2006): The continuous ranked probability score for circular variab
 \seealso{
 EnsCrps, ScoreDiff, SkillScore
 }
-

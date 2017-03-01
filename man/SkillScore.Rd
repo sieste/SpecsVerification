@@ -31,4 +31,3 @@ SkillScore(EnsCrps(ens, obs), EnsCrps(ens[, 1:2], obs))
 \seealso{
 ScoreDiff
 }
-

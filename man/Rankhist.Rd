@@ -32,4 +32,3 @@ Hammill T.M. (2001). Interpretation of Rank Histograms for Verifying Ensemble Fo
 \seealso{
 PlotRankhist, TestRankhist
 }
-

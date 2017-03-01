@@ -26,4 +26,3 @@ Calculate EnsRps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff EnsRps
 }
-

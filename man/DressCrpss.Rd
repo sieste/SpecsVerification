@@ -22,4 +22,3 @@ Calculate DressCrps Skill Score (deprecated, use function SkillScore instead)
 \seealso{
 SkillScore DressCrps DressEnsemble
 }
-

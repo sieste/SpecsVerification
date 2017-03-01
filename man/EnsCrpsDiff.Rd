@@ -24,4 +24,3 @@ Calculate EnsCrps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff EnsCrps
 }
-

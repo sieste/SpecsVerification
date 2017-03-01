@@ -22,4 +22,3 @@ Calculate AUC difference `AUC(fcst,obs) - AUC(fcst_ref, obs)` of two forecasts f
 \seealso{
 Auc AucDiff
 }
-

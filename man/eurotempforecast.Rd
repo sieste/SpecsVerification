@@ -2,14 +2,14 @@
 % Please edit documentation in R/eurotempforecast.R
 \docType{data}
 \name{eurotempforecast}
-\alias{ens}
-\alias{ens.bin}
-\alias{ens.cat}
 \alias{eurotempforecast}
+\alias{ens}
 \alias{obs}
-\alias{obs.bin}
-\alias{obs.cat}
 \alias{obs.lag}
+\alias{ens.bin}
+\alias{obs.bin}
+\alias{ens.cat}
+\alias{obs.cat}
 \title{Seasonal ensemble forecast of European average summer temperature}
 \format{Variables contained in the data set:
 \itemize{
@@ -33,4 +33,3 @@ Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2.
 Santander Meteorology Group (2015). ecomsUDG.Raccess: R interface to the ECOMS User Data Gateway. R package version 4.2-0. http://meteo.unican.es/trac/wiki/udg/ecoms
 }
 \keyword{datasets}
-

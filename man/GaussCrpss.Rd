@@ -26,4 +26,3 @@ Calculate GaussCrps Skill Score (deprecated, use function SkillScore instead)
 \seealso{
 SkillScore GaussCrps
 }
-

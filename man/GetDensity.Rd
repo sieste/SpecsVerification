@@ -44,4 +44,3 @@ To calculate the PIT values for the dressed ensemble and observations `obs`, use
 \seealso{
 DressEnsemble, DressCrps, DressIgn, PlotDressedEns, FitAkdParameters
 }
-

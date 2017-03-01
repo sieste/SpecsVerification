@@ -33,4 +33,3 @@ Broecker J. (2008). On reliability analysis of multi-categorical forecasts. Nonl
 \seealso{
 Rankhist, TestRankhist
 }
-

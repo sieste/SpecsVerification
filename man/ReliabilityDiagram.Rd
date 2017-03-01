@@ -6,7 +6,7 @@
 \usage{
 ReliabilityDiagram(probs, obs, bins = 10, nboot = 500, plot = FALSE,
   plot.refin = TRUE, cons.probs = 0.95, attributes = FALSE,
-  handle.na = "na.fail")
+  handle.na = c("na.fail", "use.pairwise.complete"))
 }
 \arguments{
 \item{probs}{vector of N probability forecasts for the event obs=1}
@@ -21,7 +21,7 @@ ReliabilityDiagram(probs, obs, bins = 10, nboot = 500, plot = FALSE,
 
 \item{plot.refin}{Whether to add the frequency distribution of the forecasts to the reliability diagram. default: TRUE}
 
-\item{cons.probs}{The width of the consitency intervals. default: 0.95}
+\item{cons.probs}{The width of the consitency intervals. default: 0.95. Set to NA for no consistency bars.}
 
 \item{attributes}{locical, whether attributes lines are included in the diagram. default: FALSE}
 
@@ -45,4 +45,3 @@ ReliabilityDiagram(p, obs.bin, plot=TRUE)
 Jolliffe IT, Stephenson DB, eds. (2012): Forecast verification: A practitioner's guide in atmospheric science. John Wiley & Sons, 2012. ISBN: 978-0-470-66071-3
 Broecker J, Smith LA (2007): Increasing the Reliability of Reliability Diagrams. Wea. Forecasting, 22, 651--661.  DOI: 10.1175/WAF993.1.
 }
-

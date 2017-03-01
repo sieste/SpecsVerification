@@ -32,4 +32,3 @@ PlotDressedEns(d.ens, add=FALSE, obs=obs, plot.ens=FALSE, plot.ker=TRUE)
 \seealso{
 DressEnsemble
 }
-

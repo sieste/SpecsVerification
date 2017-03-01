@@ -39,4 +39,3 @@ Siegert (2013): Variance estimation for Brier Score decomposition. QJRMS. http:/
 \seealso{
 ReliabilityDiagram
 }
-

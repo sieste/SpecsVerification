@@ -31,4 +31,3 @@ Gneiting et al (2005). Calibrated Probabilistic Forecasting Using Ensemble Model
 \seealso{
 EnsCrps, DressCrps, ScoreDiff, SkillScore
 }
-

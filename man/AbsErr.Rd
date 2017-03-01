@@ -24,4 +24,3 @@ mean(AbsErr(rowMeans(ens), obs))
 \seealso{
 SqErr, ScoreDiff, SkillScore
 }
-

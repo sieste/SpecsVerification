@@ -22,4 +22,3 @@ Detrend fits a linear function to a time-series of observations or to the time-s
  Detrend(ens)
  Detrend(obs, demean=FALSE)
 }
-

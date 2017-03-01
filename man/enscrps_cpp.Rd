@@ -19,4 +19,3 @@ vector of crps values
 \description{
 CRPS for ensemble forecasts (C++ implementation)
 }
-

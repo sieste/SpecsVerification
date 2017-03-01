@@ -33,4 +33,3 @@ Sun and Xu (2014): Fast Implementation of DeLong's Algorithm for Comparing the A
 \seealso{
 AucDiff
 }
-

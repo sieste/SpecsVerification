@@ -24,4 +24,3 @@ Calculate FairBrier Skill Score (deprecated, use function SkillScore instead)
 \seealso{
 SkillScore EnsBrier
 }
-

@@ -20,4 +20,3 @@ Calculate AUC and its sampling standard deviation (Internal C++ implementation)
 \seealso{
 Auc AucDiff
 }
-

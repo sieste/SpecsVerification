@@ -61,4 +61,3 @@ returned to also test comparative verification.
  l <- GenerateToyData()
  with(l, EnsCrps(ens, obs))
 }
-

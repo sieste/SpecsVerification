@@ -37,4 +37,3 @@ n/a
 \seealso{
 EnsBrier, EnsRps, EnsCrps, ScoreDiff, SkillScore
 }
-

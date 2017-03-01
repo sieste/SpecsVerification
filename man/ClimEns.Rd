@@ -21,4 +21,3 @@ Construct a climatological ensemble from a vector of observations. Optionally, t
 data(eurotempforecast)
 ClimEns(obs)
 }
-

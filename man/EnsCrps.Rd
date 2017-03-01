@@ -35,4 +35,3 @@ Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the
 \seealso{
 EnsBrier, EnsRps, DressCrps, GaussCrps, ScoreDiff, SkillScore
 }
-

@@ -40,4 +40,3 @@ Jolliffe I.T., Primo C. (2008): Evaluating rank histograms using decompositions 
 \seealso{
 Rankhist, PlotRankhist
 }
-

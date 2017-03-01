@@ -33,4 +33,3 @@ Von Storch, Zwiers (2001): Statistical analysis in climate research. Cambridge U
 \seealso{
 CorrDiff
 }
-

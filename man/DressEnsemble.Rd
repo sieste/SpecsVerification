@@ -43,4 +43,3 @@ Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribut
 \seealso{
 DressCrps, DressIgn, GetDensity, FitAkdParameters
 }
-

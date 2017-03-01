@@ -28,4 +28,3 @@ Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information T
 \seealso{
 DressEnsemble, DressCrps
 }
-

@@ -28,4 +28,3 @@ Calculate GaussCrps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff GaussCrps
 }
-

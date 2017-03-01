@@ -27,4 +27,3 @@ Calculate FairRps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff EnsRps
 }
-

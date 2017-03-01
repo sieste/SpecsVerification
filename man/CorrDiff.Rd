@@ -37,4 +37,3 @@ Zou (2007): Toward using confidence intervals to compare correlations. Psycholog
 \seealso{
 Corr
 }
-

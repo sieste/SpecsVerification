@@ -38,4 +38,3 @@ Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribut
 \seealso{
 DressEnsemble, DressCrps, DressIgn, PlotDressedEns, GetDensity
 }
-

@@ -34,4 +34,3 @@ Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Ec
 \seealso{
 SkillScore
 }
-

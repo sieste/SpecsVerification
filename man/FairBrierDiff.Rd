@@ -26,4 +26,3 @@ Calculate FairBrier Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff EnsBrier
 }
-

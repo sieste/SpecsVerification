@@ -22,4 +22,3 @@ Calculate EnsCrps Skill Score (deprecated, use function SkillScore instead)
 \seealso{
 SkillScore EnsCrps
 }
-

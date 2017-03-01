@@ -24,4 +24,3 @@ Calculate DressCrps Difference (deprecated, use function ScoreDiff instead)
 \seealso{
 ScoreDiff DressCrps DressEnsemble
 }
-
