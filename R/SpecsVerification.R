@@ -9,7 +9,7 @@
 #' @importFrom stats coef cor cov dist dnorm lm optim pbinom pchisq pnorm pt qnorm quantile rbinom rnorm sd var
 #' @importFrom utils tail
 
-#' @useDynLib SpecsVerification
+#' @useDynLib SpecsVerification, .registration=TRUE
 
 NULL
 

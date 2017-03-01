@@ -14,6 +14,7 @@ build: $(R_PKG_tgz)
 install: libtmp/$(PACKAGE)
 
 $(R_PKG_tgz): $(PKGFILES)
+	R-devel -e 'tools::package_native_routine_registration_skeleton(".", con=stderr())' 2> src/native_routine_registration.c;\
 	R -e 'Rcpp::compileAttributes()';\
 	R -e 'roxygen2::roxygenize(package.dir=".", clean=TRUE)';\
 	R CMD build .
@@ -26,6 +27,7 @@ check:
 	R_LIBS=/home/stefan/lib/R R CMD check $(R_PKG_tgz)
 
 check-cran: 
+	R_LIBS=/home/stefan/lib/R R CMD check $(R_PKG_tgz) --as-cran; \
 	R_LIBS=/home/stefan/lib/R R-devel CMD check $(R_PKG_tgz) --as-cran
 
 test: 
