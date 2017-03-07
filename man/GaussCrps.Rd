@@ -26,7 +26,7 @@ sd <- apply(ens, 1, sd)
 mean(GaussCrps(mean, sd, obs))
 }
 \references{
-Gneiting et al (2005). Calibrated Probabilistic Forecasting Using Ensemble Model Output Statistics and Minimum CRPS Estimation. Mon. Wea. Rev. DOI: 10.1175/MWR2904.1
+Gneiting et al (2005). Calibrated Probabilistic Forecasting Using Ensemble Model Output Statistics and Minimum CRPS Estimation. Mon. Wea. Rev. \doi{10.1175/MWR2904.1}
 }
 \seealso{
 EnsCrps, DressCrps, ScoreDiff, SkillScore

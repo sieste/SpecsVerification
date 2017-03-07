@@ -23,7 +23,7 @@ d.ens <- DressEnsemble(ens)
 DressIgn(d.ens, obs)
 }
 \references{
-Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, doi: 10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2
+Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, \doi{10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2}
 }
 \seealso{
 DressEnsemble, DressCrps

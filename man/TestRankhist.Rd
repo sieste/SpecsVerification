@@ -33,9 +33,9 @@ rh <- Rankhist(ens, obs)
 TestRankhist(rh)
 }
 \references{
-Pearson K. (1900): X. On the criterion that a given system of deviations from the probable in the case of a correlated system of variables is such that it can be reasonably supposed to have arisen from random sampling.  Phil. Mag. Series 5, 50(302) DOI: 10.1080/14786440009463897.
+Pearson K. (1900): X. On the criterion that a given system of deviations from the probable in the case of a correlated system of variables is such that it can be reasonably supposed to have arisen from random sampling.  Phil. Mag. Series 5, 50(302) \doi{10.1080/14786440009463897}
 
-Jolliffe I.T., Primo C. (2008): Evaluating rank histograms using decompositions of the chi-square test statistic. Mon. Wea. Rev. 136(6) DOI: 10.1175/2007MWR2219.1
+Jolliffe I.T., Primo C. (2008): Evaluating rank histograms using decompositions of the chi-square test statistic. Mon. Wea. Rev. 136(6) \doi{10.1175/2007MWR2219.1}
 }
 \seealso{
 Rankhist, PlotRankhist

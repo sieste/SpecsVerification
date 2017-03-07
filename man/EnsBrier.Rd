@@ -30,7 +30,7 @@ data(eurotempforecast)
 mean(EnsBrier(ens.bin, obs.bin, R.new=Inf))
 }
 \references{
-Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. doi: 10.1002/met.45
+Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. \doi{10.1002/met.45}
 }
 \seealso{
 EnsRps, EnsCrps, ScoreDiff, SkillScore

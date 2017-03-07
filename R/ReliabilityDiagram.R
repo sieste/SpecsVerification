@@ -18,7 +18,7 @@
 #' To estimate the reliability curve, the unit line is categorised into discrete bins, provided by the `bins` argument. If `bins` is a single number, it specifies the number of equidistant bins. If `bins` is a vector of values between zero and one, these values are used as the bin-breaks. 
 #' @references 
 #' Jolliffe IT, Stephenson DB, eds. (2012): Forecast verification: A practitioner's guide in atmospheric science. John Wiley & Sons, 2012. ISBN: 978-0-470-66071-3
-#' Broecker J, Smith LA (2007): Increasing the Reliability of Reliability Diagrams. Wea. Forecasting, 22, 651--661.  DOI: 10.1175/WAF993.1. 
+#' Broecker J, Smith LA (2007): Increasing the Reliability of Reliability Diagrams. Wea. Forecasting, 22, 651--661 \doi{10.1175/WAF993.1}
 #' @export
 
 ReliabilityDiagram <- 

@@ -33,7 +33,7 @@ data(eurotempforecast)
 FitAkdParameters(ens, obs)
 }
 \references{
-Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. DOI 10.1111/j.1600-0870.2008.00333.x.
+Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. \doi{10.1111/j.1600-0870.2008.00333.x}.
 }
 \seealso{
 DressEnsemble, DressCrps, DressIgn, PlotDressedEns, GetDensity

@@ -43,5 +43,5 @@ ReliabilityDiagram(p, obs.bin, plot=TRUE)
 }
 \references{
 Jolliffe IT, Stephenson DB, eds. (2012): Forecast verification: A practitioner's guide in atmospheric science. John Wiley & Sons, 2012. ISBN: 978-0-470-66071-3
-Broecker J, Smith LA (2007): Increasing the Reliability of Reliability Diagrams. Wea. Forecasting, 22, 651--661.  DOI: 10.1175/WAF993.1.
+Broecker J, Smith LA (2007): Increasing the Reliability of Reliability Diagrams. Wea. Forecasting, 22, 651--661 \doi{10.1175/WAF993.1}
 }

@@ -29,7 +29,7 @@ data(eurotempforecast)
 ScoreDiff(EnsCrps(ens, obs), EnsCrps(ens[, 1:2], obs))
 }
 \references{
-Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Economic Statistics. http://dx.doi.org/10.2307/1392185
+Diebold, Mariano (1995): Comparing Predictive Accuracy. Journal of Business & Economic Statistics. \doi{10.2307/1392185}
 }
 \seealso{
 SkillScore

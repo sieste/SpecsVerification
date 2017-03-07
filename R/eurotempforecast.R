@@ -17,9 +17,9 @@
 #' @name eurotempforecast
 #' @aliases ens obs obs.lag ens.bin obs.bin ens.cat obs.cat
 #' @references 
-#' Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bull. Amer. Meteor. Soc., 91, 1015.1057. doi:10.1175/2010BAMS3001.1 
-#' Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2. J. Clim., 27, 2185--2208, doi:10.1175/JCLI-D-12-00823.1 
-#' Santander Meteorology Group (2015). ecomsUDG.Raccess: R interface to the ECOMS User Data Gateway. R package version 4.2-0. http://meteo.unican.es/trac/wiki/udg/ecoms
+#' Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bull. Amer. Meteor. Soc., 91, 1015.1057. \doi{10.1175/2010BAMS3001.1}
+#' Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2. J. Clim., 27, 2185--2208, \doi{10.1175/JCLI-D-12-00823.1}
+#' Santander Meteorology Group (2015). ecomsUDG.Raccess: R interface to the ECOMS User Data Gateway. R package version 4.2-0. \url{http://meteo.unican.es/trac/wiki/udg/ecoms}
 #' @usage data(eurotempforecast)
 NULL
 

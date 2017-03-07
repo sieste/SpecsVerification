@@ -14,11 +14,11 @@
 #' BrierDecomp(rowMeans(ens.bin), obs.bin, bins=3, bias.corrected=TRUE)
 #' @seealso ReliabilityDiagram
 #' @references
-#' Murphy (1973): A New Vector Partition of the Probability Score. J. Appl. Met. http://dx.doi.org/10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2
+#' Murphy (1973): A New Vector Partition of the Probability Score. J. Appl. Met. \doi{10.1175/1520-0450(1973)012<0595:ANVPOT>2.0.CO;2}
 #'
-#' Ferro and Fricker (2012): A bias-corrected decomposition of the Brier score. QJRMS. http://dx.doi.org/10.1002/qj.1924
+#' Ferro and Fricker (2012): A bias-corrected decomposition of the Brier score. QJRMS. \doi{10.1002/qj.1924}
 #'
-#' Siegert (2013): Variance estimation for Brier Score decomposition. QJRMS. http://dx.doi.org/10.1002/qj.2228
+#' Siegert (2013): Variance estimation for Brier Score decomposition. QJRMS. \doi{10.1002/qj.2228}
 #' @export
 
 BrierDecomp <- function(p, y, bins=10, bias.corrected=FALSE) {

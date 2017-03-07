@@ -22,7 +22,7 @@
 #' @seealso DressCrps, DressIgn, GetDensity, FitAkdParameters
 #' @references 
 #' Silverman, B.W. (1998). Density Estimation for Statistics and Data Analysis. London: Chapman & Hall/CRC. ISBN 0-412-24620-1.
-#' Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. DOI 10.1111/j.1600-0870.2008.00333.x.
+#' Broecker J. and Smith L. (2008). From ensemble forecasts to predictive distribution functions. Tellus (2008), 60A, 663--678. \doi{10.1111/j.1600-0870.2008.00333.x}.
 #' @export
 
 DressEnsemble <- function(ens, dressing.method="silverman", 

@@ -31,9 +31,6 @@ Calculate the ensemble-adjusted Ranked Probability Score (RPS) for categorical f
 data(eurotempforecast)
 EnsRps(ens.cat, obs.cat, R.new=Inf)
 }
-\references{
-n/a
-}
 \seealso{
 EnsBrier, EnsQs, EnsCrps
 }

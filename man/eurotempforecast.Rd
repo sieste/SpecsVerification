@@ -28,8 +28,8 @@ data(eurotempforecast)
 A hindcast dataset of average European (30N,75N,12.5W,42.5E) summer (June/July/August) surface temperatures. Forecasts were initialised in May the same year. Observations and 15-member ensemble forecasts were derived from the publicly available NCEP Reanalysis (Suranjana, 2010) and the NCEP Climate Forecast System Version 2 (Suranjana, 2014), respectively. The data was downloaded through the ECOMS User Data Gateway (Santander Meteorology Group, 2015).
 }
 \references{
-Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bull. Amer. Meteor. Soc., 91, 1015.1057. doi:10.1175/2010BAMS3001.1 
-Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2. J. Clim., 27, 2185--2208, doi:10.1175/JCLI-D-12-00823.1 
-Santander Meteorology Group (2015). ecomsUDG.Raccess: R interface to the ECOMS User Data Gateway. R package version 4.2-0. http://meteo.unican.es/trac/wiki/udg/ecoms
+Saha, Suranjana, and Coauthors, 2010: The NCEP Climate Forecast System Reanalysis. Bull. Amer. Meteor. Soc., 91, 1015.1057. \doi{10.1175/2010BAMS3001.1}
+Saha, Suranjana and Coauthors, 2014: The NCEP Climate Forecast System Version 2. J. Clim., 27, 2185--2208, \doi{10.1175/JCLI-D-12-00823.1}
+Santander Meteorology Group (2015). ecomsUDG.Raccess: R interface to the ECOMS User Data Gateway. R package version 4.2-0. \url{http://meteo.unican.es/trac/wiki/udg/ecoms}
 }
 \keyword{datasets}

@@ -31,9 +31,6 @@ It is assumed that the smallest class index is 1, and the largest class index is
 data(eurotempforecast)
 EnsQs(ens.cat, obs.cat, R.new=Inf)
 }
-\references{
-n/a
-}
 \seealso{
 EnsBrier, EnsRps, EnsCrps, ScoreDiff, SkillScore
 }

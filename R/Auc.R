@@ -9,8 +9,8 @@
 #' data(eurotempforecast)
 #' Auc(rowMeans(ens.bin), obs.bin)
 #' @seealso AucDiff
-#' @references DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. http://dx.doi.org/10.2307/2531595
-#' Sun and Xu (2014): Fast Implementation of DeLong's Algorithm for Comparing the Areas Under Correlated Receiver Operating Characteristic Curves. IEEE Sign Proc Let 21(11). http://dx.doi.org/10.1109/LSP.2014.2337313
+#' @references DeLong et al (1988): Comparing the Areas under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach. Biometrics. \doi{10.2307/2531595}
+#' Sun and Xu (2014): Fast Implementation of DeLong's Algorithm for Comparing the Areas Under Correlated Receiver Operating Characteristic Curves. IEEE Sign Proc Let 21(11). \doi{10.1109/LSP.2014.2337313}
 #' @export
 Auc = function(fcst, obs, handle.na=c("na.fail", "only.complete.pairs"), use_fn=c('C++','R')) {
 

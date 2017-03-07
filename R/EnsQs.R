@@ -11,7 +11,6 @@
 #' EnsQs(ens.cat, obs.cat, R.new=Inf)
 #' @details It is assumed that the smallest class index is 1, and the largest class index is calculated by max(c(ens,obs))
 #' @seealso EnsBrier, EnsRps, EnsCrps, ScoreDiff, SkillScore
-#' @references n/a
 #' @export
 EnsQs <- function(ens, obs, R.new=NA) {
 

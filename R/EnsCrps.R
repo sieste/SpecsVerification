@@ -10,7 +10,7 @@
 #' data(eurotempforecast)
 #' mean(EnsCrps(ens, obs, R.new=Inf))
 #' @seealso EnsBrier, EnsRps, DressCrps, GaussCrps, ScoreDiff, SkillScore
-#' @references Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. http://dx.doi.org/10.1002/met.45
+#' @references Ferro CAT, Richardson SR, Weigel AP (2008) On the effect of ensemble size on the discrete and continuous ranked probability scores. Meteorological Applications. \doi{10.1002/met.45}
 #' @export
 EnsCrps = function(ens, obs, R.new=NA) {
 

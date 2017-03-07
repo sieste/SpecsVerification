@@ -8,7 +8,7 @@
 #' d.ens <- DressEnsemble(ens)
 #' DressIgn(d.ens, obs)
 #' @seealso DressEnsemble, DressCrps
-#' @references Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, doi: 10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2
+#' @references Roulston and Smith (2002) Evaluating Probabilistic Forecasts Using Information Theory, \doi{10.1175/1520-0493(2002)130<1653:EPFUIT>2.0.CO;2}
 #' @export
 
 # return a vector of Ignorance scores for dressed ensembles

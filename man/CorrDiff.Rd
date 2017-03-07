@@ -31,8 +31,8 @@ data(eurotempforecast)
 CorrDiff(rowMeans(ens), ens[, 1], obs)
 }
 \references{
-Steiger (1980): Tests for comparing elements of a correlation matrix. Psychological Bulletin. http://dx.doi.org/10.1037/0033-2909.87.2.245 
-Zou (2007): Toward using confidence intervals to compare correlations. Psychological Methods. http://dx.doi.org/10.1037/1082-989X.12.4.399
+Steiger (1980): Tests for comparing elements of a correlation matrix. Psychological Bulletin. \doi{10.1037/0033-2909.87.2.245} 
+Zou (2007): Toward using confidence intervals to compare correlations. Psychological Methods. \doi{10.1037/1082-989X.12.4.399}
 }
 \seealso{
 Corr

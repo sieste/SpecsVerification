@@ -11,7 +11,6 @@
 #' data(eurotempforecast)
 #' EnsRps(ens.cat, obs.cat, R.new=Inf)
 #' @seealso EnsBrier, EnsQs, EnsCrps
-#' @references n/a
 #' @export
 EnsRps <- function(ens, obs, R.new=NA, format=c('category', 'members')) {
 
